@@ -9,7 +9,7 @@ const Banner = () => {
       <AutoplaySlider
         play={true}
         cancelOnInteraction={false} // should stop playing on user interaction
-        interval={2000}
+        interval={1000}
       >
         <div data-src="https://i.ibb.co/bvbscd3/annie-spratt-h-WJs-Ona-WTqs-unsplash.jpg" />
         <div data-src="https://i.ibb.co/F5XY8h1/bank-phrom-Tzm3-Oyu-6sk-unsplash.jpg" />
