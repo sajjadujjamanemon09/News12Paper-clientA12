@@ -17,14 +17,16 @@ const Navbar = () => {
   const navLinks = (
     <>
       <li><NavLink to='/'>Home</NavLink></li>
-      <li><NavLink to='/booking'>Booking Now</NavLink></li>
-      <li><NavLink to='/ourTeam'>Our Team</NavLink></li>
-      <li><NavLink to='/about'>About US</NavLink></li>
+      <li><NavLink to='/addArticles'>Add Articles</NavLink></li>
+      <li><NavLink to='/allArticles'>All Articles</NavLink></li>
+      <li><NavLink to='/myArticles'>My Articles</NavLink></li>
+      <li><NavLink to='/premiumArticles'>Premium Articles</NavLink></li>
+      <li><NavLink to='/subscription'>Subscription</NavLink></li>
     </>
   );
 
   return (
-    <div className="navbar my-4 max-w-7xl mx-auto">
+    <div className="navbar fixed z-10 bg-opacity-60 bg-black text-white mx-auto">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -50,7 +52,10 @@ const Navbar = () => {
            {navLinks}
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-3xl font-bold">SetUp Projects</a>
+       <div className="flex justify-center items-center">
+       <img className="w-16" src="https://i.ibb.co/DMZvhP6/news.png" alt="" />
+        <a className="btn btn-ghost normal-case text-3xl font-bold">NEWS<span className="text-red-600">12</span>PAPER</a>
+       </div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -68,7 +73,7 @@ const Navbar = () => {
           
           :
           <Link to='/signIn'>
-        <button className="btn btn-outline"><FaUserCheck></FaUserCheck>Login</button>
+        <button className="btn btn-outline text-white"><FaUserCheck></FaUserCheck>Login</button>
         </Link>
         }
         

@@ -3,7 +3,7 @@ import App from "../App";
 import SignIn from "../page/SignIn/SignIn";
 import SignUp from "../page/SignUp/SignUp";
 import ErrorPage from "../page/ErrorPage/ErrorPage";
-import Home from "../page/Home/Home";
+import Home from "../page/Home/Home/Home";
 
 const routes = createBrowserRouter([
   {
