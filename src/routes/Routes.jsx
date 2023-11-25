@@ -5,6 +5,7 @@ import SignUp from "../page/SignUp/SignUp";
 import ErrorPage from "../page/ErrorPage/ErrorPage";
 import Home from "../page/Home/Home/Home";
 import AddArticle from "../page/AddArticle/AddArticle";
+import PrivateRoutes from "./PrivateRoutes";
 
 const routes = createBrowserRouter([
   {
@@ -18,7 +19,8 @@ const routes = createBrowserRouter([
       },
       {
         path: 'addArticles',
-        element: <AddArticle />
+        element: <PrivateRoutes><AddArticle /></PrivateRoutes>,
+        loader: () =>  fetch("http://localhost:5000/title")
       },
       {
         path: 'signIn',

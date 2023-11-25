@@ -1,53 +1,48 @@
 import Select from "react-select";
-import swal from "sweetalert";
+import { useState } from "react";
+
+const tags = [
+  { value: "#fashion", label: "#fashion" },
+  { value: "#sports", label: "#sports" },
+  { value: "#fitness", label: "#fitness" },
+  { value: "#movie", label: "#movie" },
+  { value: "#travel", label: "#travel" },
+  { value: "#magazine", label: "#magazine" },
+];
+
+const publisher = [
+  { value: "Daily Star", label: "Daily Star" },
+  { value: "The Independent", label: "The Independent" },
+  { value: "New Age", label: "New Age" },
+  { value: "Dhaka Tribune", label: "Dhaka Tribune" },
+];
 
 const AddArticle = () => {
-  const tags = [
-    { value: "#fashion", label: "#fashion" },
-    { value: "#sports", label: "#sports" },
-    { value: "#fitness", label: "#fitness" },
-    { value: "#movie", label: "#movie" },
-    { value: "#travel", label: "#travel" },
-    { value: "#magazine", label: "#magazine" },
-  ];
-  const publisher = [
-    { value: "Daily Star", label: "Daily Star" },
-    { value: "The Independent", label: "The Independent" },
-    { value: "New Age", label: "New Age" },
-    { value: "Dhaka Tribune", label: "Dhaka Tribune" },
-  ];
+  const [article, setArticle] = useState({
+    title: "",
+    description: "",
+    publisher: [],
+    tags: [],
+  });
 
-  const handleAddProduct = (event) => {
-    event.preventDefault();
+  const handleBlur = (e, name) => {
+    const updatedArticle = { ...article, [name]: e.target.value };
+    setArticle(updatedArticle);
+  };
 
-    const form = event.target;
+  const handleSelectBlur = (selectedOption, name) => {
+    const updatedArticle = {
+      ...article,
+      [name]: Array.isArray(selectedOption)
+        ? selectedOption.map((option) => option.value)
+        : selectedOption.value,
+    };
+    setArticle(updatedArticle);
+  };
 
-    const title = form.title.value;
-    const publisher = form.publisher.value;
-    const tags = form.tags.value;
-    const description = form.description.value;
-    const image = form.image.value;
-
-    const newProduct = { title, publisher, tags, description, image };
-
-    console.log(newProduct);
-    console.log(tags);
-
-    // send data to the server
-    fetch("https://ass10-two.vercel.app/product", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newProduct),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.insertedId) {
-          swal("Success!", "Product Added Successfully", "success");
-        }
-      });
+  const handleAddTitle = (e) => {
+    e.preventDefault();
+    console.log("Article data:", article);
   };
 
   return (
@@ -62,7 +57,7 @@ const AddArticle = () => {
             Website
           </p>
         </div>
-        <form onSubmit={handleAddProduct}>
+        <form onSubmit={handleAddTitle}>
           {/* name and Brand name Row */}
           <div className="md:flex mb-8">
             <div className="form-control md:w-1/2">
@@ -72,7 +67,7 @@ const AddArticle = () => {
               <label className="input-group">
                 <input
                   type="text"
-                  name="title"
+                  onBlur={(e) => handleBlur(e, "title")}
                   placeholder="Article Title"
                   className="input input-bordered w-full"
                 />
@@ -85,7 +80,7 @@ const AddArticle = () => {
               <label className="input-group">
                 <input
                   type="text"
-                  name="description"
+                  onBlur={(e) => handleBlur(e, "description")}
                   placeholder="Description"
                   className="input input-bordered w-full"
                 />
@@ -105,6 +100,7 @@ const AddArticle = () => {
                 name="tags"
                 className="basic-multi-select py-2 w-full"
                 classNamePrefix="select"
+                onChange={(selectedOption) => handleSelectBlur(selectedOption, "tags")}
               />
             </div>
             <div className="form-control md:w-1/2 md:ml-4">
@@ -117,6 +113,7 @@ const AddArticle = () => {
                 classNamePrefix="select"
                 name="publisher"
                 options={publisher}
+                onChange={(selectedOption) => handleSelectBlur(selectedOption, "publisher")}
               />
             </div>
           </div>
@@ -136,11 +133,12 @@ const AddArticle = () => {
               </label>
             </div>
           </div>
-          <input
-            type="submit"
-            value="Add Product"
-            className="btn btn-block bg-slate-800 text-white"
-          />
+                  <button
+          type="submit"
+          className=" btn btn-block bg-slate-800 text-white"
+        >
+          Add Articles
+        </button>
         </form>
       </div>
     </div>
@@ -148,3 +146,5 @@ const AddArticle = () => {
 };
 
 export default AddArticle;
+
+
