@@ -19,7 +19,7 @@ const ViewerReviews = () => {
     <div className="max-w-7xl mx-auto my-20">
       <div>
         {" "}
-        <h2 className="text-4xl font-bold text-center">What Our Viewers Say</h2>
+        <h2 className="text-4xl font-bold text-center">What Our Users Say</h2>
       </div>
       <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
         {reviews.map((review) => (

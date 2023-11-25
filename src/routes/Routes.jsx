@@ -4,6 +4,7 @@ import SignIn from "../page/SignIn/SignIn";
 import SignUp from "../page/SignUp/SignUp";
 import ErrorPage from "../page/ErrorPage/ErrorPage";
 import Home from "../page/Home/Home/Home";
+import AddArticle from "../page/AddArticle/AddArticle";
 
 const routes = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const routes = createBrowserRouter([
       {
         index: true,
         element: <Home />
+      },
+      {
+        path: 'addArticles',
+        element: <AddArticle />
       },
       {
         path: 'signIn',
