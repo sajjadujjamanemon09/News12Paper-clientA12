@@ -7,6 +7,7 @@ import { Rating } from "@smastrom/react-rating";
 import { FaQuoteLeft } from "react-icons/fa";
 
 import "@smastrom/react-rating/style.css";
+import SectionTitle from "../../../components/section/SectionTitle";
 
 const ViewerReviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -17,10 +18,10 @@ const ViewerReviews = () => {
   }, []);
   return (
     <div className="max-w-7xl mx-auto my-20">
-      <div>
-        {" "}
-        <h2 className="text-4xl font-bold text-center">What Our Users Say</h2>
-      </div>
+        <SectionTitle
+          subHeading={"TESTIMONIAL"}
+          heading={"WHAT OUR USER SAYS"}
+        ></SectionTitle>
       <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
         {reviews.map((review) => (
           <SwiperSlide key={review._id} review={review}>

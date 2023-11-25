@@ -1,3 +1,4 @@
+import SectionTitle from "../../../components/section/SectionTitle";
 import Container from "../../../components/ui/Container";
 
 
@@ -5,10 +6,10 @@ const Plans = () => {
     return (
 <Container>
 <div className="my-20">
-            <div className="text-center">
-            <p  className="text-cyan-700 pb-4">PLANS</p>
-            <h2 className="text-4xl font-bold pb-10 ">Affordable pricing for all <span className="text-4xl font-bold text-red-600">User</span></h2>
-            </div>
+<SectionTitle
+          subHeading={"PLANS"}
+          heading={"AFFORDABLE PRICE FOR ALL"}
+        ></SectionTitle>
             <div className="grid grid-cols-1  md:grid-cols-3 md:pl-0">
                     <div className="relative border-2 border-cyan-900 flex max-w-[24rem] flex-col rounded-xl bg-gradient-to-tr from-cyan-600 to-pink-400 bg-clip-border p-8 text-white shadow-md shadow-pink-500/40">
   <div className="relative m-0 mb-8 overflow-hidden rounded-none border-b border-white/10 bg-transparent bg-clip-border pb-8 text-gray-700 shadow-none">

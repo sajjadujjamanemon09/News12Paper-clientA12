@@ -79,7 +79,7 @@ const AddArticle = () => {
               </label>
             </div>
             <div className="form-control md:w-1/2 md:ml-4">
-            <label className="label">
+              <label className="label">
                 <span className="label-text">Description</span>
               </label>
               <label className="input-group">
@@ -90,7 +90,6 @@ const AddArticle = () => {
                   className="input input-bordered w-full"
                 />
               </label>
-
             </div>
           </div>
           {/* type & price row */}
@@ -99,29 +98,26 @@ const AddArticle = () => {
               <label className="label">
                 <span className="label-text">Tags</span>
               </label>
-              <label className="input-group">
-                <Select
-                  options={tags}
-                  isMulti
-                  name="tags"
-                  className="basic-multi-select py-2 w-full"
-                  classNamePrefix="select"
-                />
-              </label>
+
+              <Select
+                options={tags}
+                isMulti
+                name="tags"
+                className="basic-multi-select py-2 w-full"
+                classNamePrefix="select"
+              />
             </div>
             <div className="form-control md:w-1/2 md:ml-4">
-            <label className="label">
+              <label className="label">
                 <span className="label-text">Publisher</span>
               </label>
-              <label className="input-group">
+
               <Select
-                  options={publisher}
-                  isMulti
-                  name="publisher"
-                  className="basic-multi-select py-2 w-full"
-                  classNamePrefix="select"
-                />
-              </label>
+                className="basic-single py-2 w-full"
+                classNamePrefix="select"
+                name="publisher"
+                options={publisher}
+              />
             </div>
           </div>
           {/* image row */}
@@ -132,10 +128,10 @@ const AddArticle = () => {
               </label>
               <label className="input-group">
                 <input
-                  type="text"
+                  type="file"
                   name="image"
                   placeholder="Image URL"
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full py-2"
                 />
               </label>
             </div>
