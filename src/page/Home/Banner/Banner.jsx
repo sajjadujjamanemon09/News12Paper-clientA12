@@ -5,7 +5,7 @@ import "react-awesome-slider/dist/styles.css";
 const Banner = () => {
   const AutoplaySlider = withAutoplay(AwesomeSlider);
   return (
-    <div>
+    <>
       <AutoplaySlider
         play={true}
         cancelOnInteraction={false} // should stop playing on user interaction
@@ -18,7 +18,7 @@ const Banner = () => {
         <div data-src="https://i.ibb.co/J35NV52/hannah-grace-Te-r-G1-A6ru-U-unsplash.jpg" />
         <div data-src="https://i.ibb.co/Gv8t3KW/viktor-bystrov-1-QEs6h9s4-XQ-unsplash.jpg" />
       </AutoplaySlider>
-    </div>
+    </>
   );
 };
 

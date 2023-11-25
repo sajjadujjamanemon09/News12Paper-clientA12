@@ -7,19 +7,21 @@ const Plans = () => {
 <div className="my-20">
             <div className="text-center">
             <p  className="text-cyan-700 pb-4">PLANS</p>
-            <h2 className="text-4xl font-bold pb-10 ">Affordable pricing for all <span className="text-4xl font-bold text-red-600">PLAYERS</span></h2>
+            <h2 className="text-4xl font-bold pb-10 ">Affordable pricing for all <span className="text-4xl font-bold text-red-600">User</span></h2>
             </div>
-            <div className="grid grid-cols-1 pl-10 md:grid-cols-3 md:pl-0 gap-6">
-                    <div data-aos="flip-up"  data-aos-easing="linear"
-     data-aos-duration="1000" className="relative flex w-full max-w-[20rem] flex-col rounded-xl bg-gradient-to-tr from-cyan-600 to-pink-400 bg-clip-border p-8 text-white shadow-md shadow-pink-500/40">
-  <div className="relative m-0 mb-8 overflow-hidden rounded-none border-b border-white/10 bg-transparent bg-clip-border pb-8 text-center text-gray-700 shadow-none">
-    <p className="block font-sans text-sm font-normal uppercase leading-normal text-white antialiased">
-      basic
+            <div className="grid grid-cols-1  md:grid-cols-3 md:pl-0">
+                    <div className="relative border-2 border-cyan-900 flex max-w-[24rem] flex-col rounded-xl bg-gradient-to-tr from-cyan-600 to-pink-400 bg-clip-border p-8 text-white shadow-md shadow-pink-500/40">
+  <div className="relative m-0 mb-8 overflow-hidden rounded-none border-b border-white/10 bg-transparent bg-clip-border pb-8 text-gray-700 shadow-none">
+    <p className="block text-center font-sans text-sm font-normal uppercase leading-normal text-white antialiased bg-cyan-950 border rounded-2xl py-2">
+      FREE FOR 1 MONTH
     </p>
-    <h1 className="mt-6 flex justify-center gap-1 font-sans text-7xl font-normal tracking-normal text-white antialiased">
-      <span className="mt-2 text-4xl">$</span>99
-      <span className="self-end text-4xl">/month</span>
-    </h1>
+    <div className="mt-6 flex justify-between font-sans text-5xl font-normal tracking-normal text-white antialiased">
+      <span className="self-end text-4xl">Premium Individual</span>
+      <div className="text-end">
+      <p className=" text-3xl">Free</p>
+      <p className=" text-xs">FOR 1 MONTH</p>
+      </div>
+    </div>
   </div>
   <div className="p-0">
     <ul className="flex flex-col gap-4">
@@ -42,7 +44,7 @@ const Plans = () => {
           </svg>
         </span>
         <p className="block font-sans text-base font-normal leading-relaxed text-inherit antialiased">
-          2 team mates
+        1 Premium account
         </p>
       </li>
       <li className="flex items-center gap-4">
@@ -64,7 +66,7 @@ const Plans = () => {
           </svg>
         </span>
         <p className="block font-sans text-base font-normal leading-relaxed text-inherit antialiased">
-          99+ components
+        Cancel anytime
         </p>
       </li>
       <li className="flex items-center gap-4">
@@ -86,51 +88,8 @@ const Plans = () => {
           </svg>
         </span>
         <p className="block font-sans text-base font-normal leading-relaxed text-inherit antialiased">
-          3+ Sports Access
-        </p>
-      </li>
-      <li className="flex items-center gap-4">
-        <span className="rounded-full border border-white/20 bg-white/20 p-1">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="2"
-            stroke="currentColor"
-            aria-hidden="true"
-            className="h-3 w-3"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M4.5 12.75l6 6 9-13.5"
-            ></path>
-          </svg>
-        </span>
-        <p className="block font-sans text-base font-normal leading-relaxed text-inherit antialiased">
-          1 year free Subscription
-        </p>
-      </li>
-      <li className="flex items-center gap-4">
-        <span className="rounded-full border border-white/20 bg-white/20 p-1">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="2"
-            stroke="currentColor"
-            aria-hidden="true"
-            className="h-3 w-3"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M4.5 12.75l6 6 9-13.5"
-            ></path>
-          </svg>
-        </span>
-        <p className="block font-sans text-base font-normal leading-relaxed text-inherit antialiased">
-          Life time Sporting support
+        15 hours/month of listening time from
+our audiobooks subscriber catalog
         </p>
       </li>
     </ul>
@@ -141,20 +100,22 @@ const Plans = () => {
       type="button"
       data-ripple-dark="true"
     >
-      Try It Now
+      Try free for 1 month
     </button>
   </div>
+  <p className="text-xs text-center text-black mt-4">Free for 1 month, then $10.99 per month after. Offer only available if you havent tried Premium before.Terms Apply
+Premium Duo</p>
                     </div>
-                    <div data-aos="flip-down"  data-aos-easing="linear"
-     data-aos-duration="1000"  className="relative flex w-full max-w-[20rem] flex-col rounded-xl bg-gradient-to-tr from-cyan-600 to-pink-400 bg-clip-border p-8 text-white shadow-md shadow-pink-500/40">
-  <div className="relative m-0 mb-8 overflow-hidden rounded-none border-b border-white/10 bg-transparent bg-clip-border pb-8 text-center text-gray-700 shadow-none">
-    <p className="block font-sans text-sm font-normal uppercase leading-normal text-white antialiased">
-      standard
-    </p>
-    <h1 className="mt-6 flex justify-center gap-1 font-sans text-7xl font-normal tracking-normal text-white antialiased">
-      <span className="mt-2 text-4xl">$</span>199
-      <span className="self-end text-4xl">/year</span>
-    </h1>
+                    <div className="relative border-2 border-red-500 flex w-full max-w-[24rem] flex-col rounded-xl bg-gradient-to-tr from-cyan-600 to-pink-400 bg-clip-border p-8 text-white shadow-md shadow-pink-500/40">
+  <div className="relative m-0 mb-8 overflow-hidden rounded-none border-b border-white/10 bg-transparent bg-clip-border pb-10 text-gray-700 shadow-none">
+   
+    <div className="mt-6 flex justify-between font-sans text-5xl font-normal tracking-normal text-white antialiased">
+      <span className="self-end text-4xl">Premium <br /> Duo</span>
+      <div className="text-end">
+      <p className=" text-3xl">$14.99</p>
+      <p className=" text-xs">FOR 1 MONTH</p>
+      </div>
+    </div>
   </div>
   <div className="p-0">
     <ul className="flex flex-col gap-4">
@@ -177,7 +138,7 @@ const Plans = () => {
           </svg>
         </span>
         <p className="block font-sans text-base font-normal leading-relaxed text-inherit antialiased">
-          5 team mates
+        2 Premium account
         </p>
       </li>
       <li className="flex items-center gap-4">
@@ -199,9 +160,10 @@ const Plans = () => {
           </svg>
         </span>
         <p className="block font-sans text-base font-normal leading-relaxed text-inherit antialiased">
-          199+ components
+        Cancel anytime
         </p>
       </li>
+   
       <li className="flex items-center gap-4">
         <span className="rounded-full border border-white/20 bg-white/20 p-1">
           <svg
@@ -221,51 +183,8 @@ const Plans = () => {
           </svg>
         </span>
         <p className="block font-sans text-base font-normal leading-relaxed text-inherit antialiased">
-          5+ Sports Access
-        </p>
-      </li>
-      <li className="flex items-center gap-4">
-        <span className="rounded-full border border-white/20 bg-white/20 p-1">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="2"
-            stroke="currentColor"
-            aria-hidden="true"
-            className="h-3 w-3"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M4.5 12.75l6 6 9-13.5"
-            ></path>
-          </svg>
-        </span>
-        <p className="block font-sans text-base font-normal leading-relaxed text-inherit antialiased">
-          5 year free Subscription
-        </p>
-      </li>
-      <li className="flex items-center gap-4">
-        <span className="rounded-full border border-white/20 bg-white/20 p-1">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="2"
-            stroke="currentColor"
-            aria-hidden="true"
-            className="h-3 w-3"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M4.5 12.75l6 6 9-13.5"
-            ></path>
-          </svg>
-        </span>
-        <p className="block font-sans text-base font-normal leading-relaxed text-inherit antialiased">
-          Life time Sporting support
+        15 hours/month of listening time from
+our audiobooks subscriber catalog (plan manager only)
         </p>
       </li>
     </ul>
@@ -276,20 +195,21 @@ const Plans = () => {
       type="button"
       data-ripple-dark="true"
     >
-      Try It Now
+      Get Premium Duo
     </button>
   </div>
+  <p className="text-xs text-center text-black mt-4">For couples who reside at the same address. Terms Apply</p>
                     </div>
-                    <div data-aos="flip-up"  data-aos-easing="linear"
-     data-aos-duration="1000"  className="relative flex w-full max-w-[20rem] flex-col rounded-xl bg-gradient-to-tr from-cyan-600 to-pink-400 bg-clip-border p-8 text-white shadow-md shadow-pink-500/40">
-  <div className="relative m-0 mb-8 overflow-hidden rounded-none border-b border-white/10 bg-transparent bg-clip-border pb-8 text-center text-gray-700 shadow-none">
-    <p className="block font-sans text-sm font-normal uppercase leading-normal text-white antialiased">
-      premium
-    </p>
-    <h1 className="mt-6 flex justify-center gap-1 font-sans text-7xl font-normal tracking-normal text-white antialiased">
-      <span className="mt-2 text-4xl">$</span>399
-      <span className="self-end text-4xl">/player</span>
-    </h1>
+                    <div className="relative border-2 border-yellow-500 flex w-full max-w-[24rem] flex-col rounded-xl bg-gradient-to-tr from-cyan-600 to-pink-400 bg-clip-border p-8 text-white shadow-md shadow-pink-500/40">
+  <div className="relative m-0 mb-8 overflow-hidden rounded-none border-b border-white/10 bg-transparent bg-clip-border pb-10 text-gray-700 shadow-none">
+   
+    <div className="mt-6 flex justify-between font-sans text-5xl font-normal tracking-normal text-white antialiased">
+      <span className="self-end text-4xl">Premium Family</span>
+      <div className="text-end">
+      <p className=" text-3xl">$16.99</p>
+      <p className=" text-xs">FOR 1 MONTH</p>
+      </div>
+    </div>
   </div>
   <div className="p-0">
     <ul className="flex flex-col gap-4">
@@ -312,7 +232,7 @@ const Plans = () => {
           </svg>
         </span>
         <p className="block font-sans text-base font-normal leading-relaxed text-inherit antialiased">
-          10+ team mates
+        Up to 6 Premium or Kids accounts
         </p>
       </li>
       <li className="flex items-center gap-4">
@@ -334,7 +254,7 @@ const Plans = () => {
           </svg>
         </span>
         <p className="block font-sans text-base font-normal leading-relaxed text-inherit antialiased">
-          399+ components
+        Block explicit music
         </p>
       </li>
       <li className="flex items-center gap-4">
@@ -356,51 +276,8 @@ const Plans = () => {
           </svg>
         </span>
         <p className="block font-sans text-base font-normal leading-relaxed text-inherit antialiased">
-          10+ Sports Access
-        </p>
-      </li>
-      <li className="flex items-center gap-4">
-        <span className="rounded-full border border-white/20 bg-white/20 p-1">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="2"
-            stroke="currentColor"
-            aria-hidden="true"
-            className="h-3 w-3"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M4.5 12.75l6 6 9-13.5"
-            ></path>
-          </svg>
-        </span>
-        <p className="block font-sans text-base font-normal leading-relaxed text-inherit antialiased">
-          9 year free Subscription
-        </p>
-      </li>
-      <li className="flex items-center gap-4">
-        <span className="rounded-full border border-white/20 bg-white/20 p-1">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="2"
-            stroke="currentColor"
-            aria-hidden="true"
-            className="h-3 w-3"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M4.5 12.75l6 6 9-13.5"
-            ></path>
-          </svg>
-        </span>
-        <p className="block font-sans text-base font-normal leading-relaxed text-inherit antialiased">
-          Life time Sporting support
+        15 hours/month of listening time from
+our audiobooks subscriber catalog (plan manager only)
         </p>
       </li>
     </ul>
@@ -411,10 +288,13 @@ const Plans = () => {
       type="button"
       data-ripple-dark="true"
     >
-      Try It Now
+      Get Premium Family
     </button>
   </div>
+  <p className="text-xs text-center text-black mt-4">For couples who reside at the same address. Terms Apply</p>
                     </div>
+
+
             </div>
 
         </div>

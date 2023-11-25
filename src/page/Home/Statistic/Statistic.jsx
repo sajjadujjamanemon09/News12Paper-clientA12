@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import Container from "../../../components/ui/Container";
 import { Chart } from "react-google-charts";
 
