@@ -1,5 +1,6 @@
 import Select from "react-select";
 import { useState } from "react";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const tags = [
   { value: "#fashion", label: "#fashion" },
@@ -10,6 +11,9 @@ const tags = [
   { value: "#magazine", label: "#magazine" },
 ];
 
+const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
+
 const publisher = [
   { value: "Daily Star", label: "Daily Star" },
   { value: "The Independent", label: "The Independent" },
@@ -18,32 +22,49 @@ const publisher = [
 ];
 
 const AddArticle = () => {
-  const [article, setArticle] = useState({
-    title: "",
-    description: "",
-    publisher: [],
-    tags: [],
-  });
 
-  const handleBlur = (e, name) => {
-    const updatedArticle = { ...article, [name]: e.target.value };
-    setArticle(updatedArticle);
+  const axiosPublic = useAxiosPublic();
+
+  const [Value, getValue] = useState([]);
+
+  const Diagnose = (e) => {
+    getValue(Array.isArray(e) ? e.map((x) => x.label) : []);
   };
 
-  const handleSelectBlur = (selectedOption, name) => {
-    const updatedArticle = {
-      ...article,
-      [name]: Array.isArray(selectedOption)
-        ? selectedOption.map((option) => option.value)
-        : selectedOption.value,
-    };
-    setArticle(updatedArticle);
-  };
 
-  const handleAddTitle = (e) => {
+
+  const handleAddTitle = async (e) => {
     e.preventDefault();
-    console.log("Article data:", article);
+    const form = e.target;
+    const tags = Value;
+    const title = form.title.value;
+    const description = form.description.value;
+    const image = form.image.files[0];
+    const publisher = Value;
+
+    const imgFile = { image: image };
+
+    const res = await axiosPublic.post(image_hosting_api, imgFile, {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    });
+    console.log(res.data);
+
+    if (res.data.success) {
+      const data = {
+        title,
+        tags,
+        description,
+        publisher,
+        image: res.data.data.display_url,
+        status: 'pending'
+      };
+      const result = await axiosPublic.post("/title", data);
+      console.log(result.data);
+    }
   };
+
 
   return (
     <div className="mt-20 py-10">
@@ -67,7 +88,7 @@ const AddArticle = () => {
               <label className="input-group">
                 <input
                   type="text"
-                  onBlur={(e) => handleBlur(e, "title")}
+                  name="title"
                   placeholder="Article Title"
                   className="input input-bordered w-full"
                 />
@@ -80,7 +101,7 @@ const AddArticle = () => {
               <label className="input-group">
                 <input
                   type="text"
-                  onBlur={(e) => handleBlur(e, "description")}
+                  name="description"
                   placeholder="Description"
                   className="input input-bordered w-full"
                 />
@@ -97,10 +118,10 @@ const AddArticle = () => {
               <Select
                 options={tags}
                 isMulti
+                onChange={Diagnose}
                 name="tags"
                 className="basic-multi-select py-2 w-full"
                 classNamePrefix="select"
-                onChange={(selectedOption) => handleSelectBlur(selectedOption, "tags")}
               />
             </div>
             <div className="form-control md:w-1/2 md:ml-4">
@@ -113,7 +134,6 @@ const AddArticle = () => {
                 classNamePrefix="select"
                 name="publisher"
                 options={publisher}
-                onChange={(selectedOption) => handleSelectBlur(selectedOption, "publisher")}
               />
             </div>
           </div>
@@ -133,12 +153,12 @@ const AddArticle = () => {
               </label>
             </div>
           </div>
-                  <button
-          type="submit"
-          className=" btn btn-block bg-slate-800 text-white"
-        >
-          Add Articles
-        </button>
+          <button
+            type="submit"
+            className=" btn btn-block bg-slate-800 text-white"
+          >
+            Add Articles
+          </button>
         </form>
       </div>
     </div>
@@ -146,5 +166,3 @@ const AddArticle = () => {
 };
 
 export default AddArticle;
-
-
