@@ -1,6 +1,8 @@
 import AwesomeSlider from "react-awesome-slider";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
 import "react-awesome-slider/dist/styles.css";
+import Marquee from "react-fast-marquee";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   const AutoplaySlider = withAutoplay(AwesomeSlider);
@@ -157,7 +159,30 @@ const Banner = () => {
               </div>
             </div>
           </AutoplaySlider>
+   {/* --------------------------- */}
+
+   <div className="bg-[#F3F3F3] flex items-center mt-20">
+        <h2 className="px-6 py-6 text-xl font-medium bg-[#D72050] text-white">Breaking</h2>
+        <Marquee pauseOnHover={true}>
+        <Link to='/' className="text-lg font-semibold text-[#403F3F] mr-10">Match Highlights: Germany vs Spain — as it happened   !   Match Highlights: Germany vs Spain as...</Link>
+        <Link to='/' className="text-lg font-semibold text-[#403F3F] mr-10">Match Highlights: Germany vs Spain — as it happened   !   Match Highlights: Germany vs Spain as...</Link>
+        <Link to='/' className="text-lg font-semibold text-[#403F3F] mr-10">Match Highlights: Germany vs Spain — as it happened   !   Match Highlights: Germany vs Spain as...</Link>
+        </Marquee>
+    </div>
+   {/* --------------------------- */}
+
+   <div className="bg-[#F3F3F3] flex items-center mt-2">
+
+        <Marquee pauseOnHover={true}>
+        <Link to='/' className="text-lg font-semibold text-[#403F3F] mr-10">Match Highlights: Germany vs Spain — as it happened   !   Match Highlights: Germany vs Spain as...</Link>
+        <Link to='/' className="text-lg font-semibold text-[#403F3F] mr-10">Match Highlights: Germany vs Spain — as it happened   !   Match Highlights: Germany vs Spain as...</Link>
+        <Link to='/' className="text-lg font-semibold text-[#403F3F] mr-10">Match Highlights: Germany vs Spain — as it happened   !   Match Highlights: Germany vs Spain as...</Link>
+        </Marquee>
+        <h2 className="px-6 py-3 text-xl font-medium bg-[#2020d7] text-white">Latest</h2>
+    </div>
+   
         </div>
+
         <div className="w-1/3 h-full">
           {/* card */}
           <div className="card bg-base-200 card-side border-2 border-black rounded-lg">
@@ -168,7 +193,7 @@ const Banner = () => {
   </div>
 </div>
           {/* card */}
-          <div className="card bg-base-200 card-side border-2 border-black rounded-lg my-5">
+          <div className="card bg-base-200 card-side border-2 border-black rounded-lg my-2">
   <div className="w-2/5 h-full rounded-xl"><figure><img src="https://i.ibb.co/PWKCLKM/OIF.jpg" alt="Movie"/></figure></div>
   <div className="card-body w-3/5">
     <h2 className="card-title">Todays Football Match</h2>
