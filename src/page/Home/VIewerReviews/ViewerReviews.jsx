@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { useEffect, useState } from "react";
@@ -18,11 +18,16 @@ const ViewerReviews = () => {
   }, []);
   return (
     <div className="max-w-7xl mx-auto my-20">
-        <SectionTitle
-          subHeading={"TESTIMONIAL"}
-          heading={"WHAT OUR USER SAYS"}
-        ></SectionTitle>
-      <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+      <SectionTitle
+        subHeading={"TESTIMONIAL"}
+        heading={"WHAT OUR USER SAYS"}
+      ></SectionTitle>
+      <Swiper
+        navigation={true}
+        modules={[Autoplay, Navigation]}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        className="mySwiper"
+      >
         {reviews.map((review) => (
           <SwiperSlide key={review._id} review={review}>
             <div className="flex flex-col items-center mx-24 my-16">
