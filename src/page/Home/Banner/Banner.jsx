@@ -23,11 +23,10 @@ const Banner = () => {
               <div className="absolute rounded-xl h-full flex items-center left-0 bottom-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)">
                 <div className="text-white space-y-7 w-1/2 pl-16">
                   <h1 className="text-6xl font-bold">
-                    Affordable Price For Car Servicing
+                  TechTrends Today
                   </h1>
                   <p>
-                    There are many variations of passages of available, but the
-                    majority have suffered alteration in some form
+                  Unveiling the Future: A deep dive into the latest breakthroughs in technology, from AI advancements to cutting-edge gadgets, and their impact on society.
                   </p>
                   <div>
                     <button className="btn btn-active bg-red-500 border-none text-white mr-5">
@@ -47,11 +46,10 @@ const Banner = () => {
               <div className="absolute rounded-xl h-full flex items-center left-0 bottom-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)">
                 <div className="text-white space-y-7 w-1/2 pl-16">
                   <h1 className="text-6xl font-bold">
-                    Affordable Price For Car Servicing
+                  Global EcoWatch
                   </h1>
                   <p>
-                    There are many variations of passages of available, but the
-                    majority have suffered alteration in some form
+                  Sustainable Living Worldwide: Exploring the latest developments in environmental conservation, renewable energy, and eco-friendly initiatives shaping our planets future.
                   </p>
                   <div>
                     <button className="btn btn-active bg-red-500 border-none text-white mr-5">
@@ -72,11 +70,10 @@ const Banner = () => {
               <div className="absolute rounded-xl h-full flex items-center left-0 bottom-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)">
                 <div className="text-white space-y-7 w-1/2 pl-16">
                   <h1 className="text-6xl font-bold">
-                    Affordable Price For Car Servicing
+                  Health Horizon
                   </h1>
                   <p>
-                    There are many variations of passages of available, but the
-                    majority have suffered alteration in some form
+                  Wellness in Focus: From groundbreaking medical discoveries to holistic health practices, stay informed about the latest trends and innovations in healthcare.
                   </p>
                   <div>
                     <button className="btn btn-active bg-red-500 border-none text-white mr-5">
@@ -97,11 +94,10 @@ const Banner = () => {
               <div className="absolute rounded-xl h-full flex items-center left-0 bottom-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)">
                 <div className="text-white space-y-7 w-1/2 pl-16">
                   <h1 className="text-6xl font-bold">
-                    Affordable Price For Car Servicing
+                  Financial Frontiers
                   </h1>
                   <p>
-                    There are many variations of passages of available, but the
-                    majority have suffered alteration in some form
+                  Navigating the Markets: Comprehensive coverage of global financial news, market trends, and economic insights to keep you ahead in the world of finance.
                   </p>
                   <div>
                     <button className="btn btn-active bg-red-500 border-none text-white mr-5">
@@ -122,11 +118,10 @@ const Banner = () => {
               <div className="absolute rounded-xl h-full flex items-center left-0 bottom-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)">
                 <div className="text-white space-y-7 w-1/2 pl-16">
                   <h1 className="text-6xl font-bold">
-                    Affordable Price For Car Servicing
+                  Cultural Canvas
                   </h1>
                   <p>
-                    There are many variations of passages of available, but the
-                    majority have suffered alteration in some form
+                  Art, Entertainment, and Beyond: Delve into the world of culture with a focus on the latest in art, cinema, music, and literature, capturing the pulse of creativity around the globe.
                   </p>
                   <div>
                     <button className="btn btn-active bg-red-500 border-none text-white mr-5">
@@ -147,11 +142,10 @@ const Banner = () => {
               <div className="absolute rounded-xl h-full flex items-center left-0 bottom-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)">
                 <div className="text-white space-y-7 w-1/2 pl-16">
                   <h1 className="text-6xl font-bold">
-                    Affordable Price For Car Servicing
+                  Beyond Borders
                   </h1>
                   <p>
-                    There are many variations of passages of available, but the
-                    majority have suffered alteration in some form
+                  International Affairs Unfold: A closer look at geopolitical events, diplomatic developments, and global issues that are shaping the international landscape.
                   </p>
                   <div>
                     <button className="btn btn-active bg-red-500 border-none text-white mr-5">
@@ -164,52 +158,33 @@ const Banner = () => {
             </div>
           </AutoplaySlider>
         </div>
-        <div className="w-1/3 bg-base-300 h-full">
+        <div className="w-1/3 h-full">
           {/* card */}
-        <div className="card  border-2 rounded-lg ">
-  <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-  <div className="card-body">
-    <h2 className="card-title">
-      Shoes!
-      <div className="badge badge-secondary">NEW</div>
-    </h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
-    <div className="card-actions justify-end">
-      <div className="badge badge-outline">Fashion</div> 
-      <div className="badge badge-outline">Products</div>
-    </div>
+          <div className="card bg-base-200 card-side border-2 border-black rounded-lg">
+  <div className="w-2/5 h-full rounded-xl"><figure><img src="https://i.ibb.co/fY5TV6k/R-1.jpg" alt="Movie"/></figure></div>
+  <div className="card-body w-3/5">
+    <h2 className="card-title">New Car is released!</h2>
+    <p>The Toyota Supra Is Now Available</p>
   </div>
 </div>
           {/* card */}
-        <div className="card  border-2 rounded-lg ">
-  <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-  <div className="card-body">
-    <h2 className="card-title">
-      Shoes!
-      <div className="badge badge-secondary">NEW</div>
-    </h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
-    <div className="card-actions justify-end">
-      <div className="badge badge-outline">Fashion</div> 
-      <div className="badge badge-outline">Products</div>
-    </div>
+          <div className="card bg-base-200 card-side border-2 border-black rounded-lg my-5">
+  <div className="w-2/5 h-full rounded-xl"><figure><img src="https://i.ibb.co/PWKCLKM/OIF.jpg" alt="Movie"/></figure></div>
+  <div className="card-body w-3/5">
+    <h2 className="card-title">Todays Football Match</h2>
+    <p>New Castle & Man City war start.</p>
   </div>
 </div>
           {/* card */}
-        <div className="card  border-2 rounded-lg ">
-  <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-  <div className="card-body">
-    <h2 className="card-title">
-      Shoes!
-      <div className="badge badge-secondary">NEW</div>
-    </h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
-    <div className="card-actions justify-end">
-      <div className="badge badge-outline">Fashion</div> 
-      <div className="badge badge-outline">Products</div>
-    </div>
+          <div className="card bg-base-200 card-side border-2 border-black rounded-lg">
+  <div className="w-2/5 h-full rounded-xl"><figure><img src="https://i.ibb.co/Rjs0sxj/OIF-1.jpg" alt="Movie"/></figure></div>
+  <div className="card-body w-3/5">
+    <h2 className="card-title">Work on traffic lights</h2>
+    <p>There will be small amount of disruption to traffic flow in Longford town next week</p>
   </div>
 </div>
+
+
         </div>
       </div>
     </>
