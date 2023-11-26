@@ -1,6 +1,8 @@
 import Select from "react-select";
 import { useState } from "react";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
+
 
 const tags = [
   { value: "#fashion", label: "#fashion" },
@@ -14,13 +16,6 @@ const tags = [
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
-const publisher = [
-  { value: "Daily Star", label: "Daily Star" },
-  { value: "The Independent", label: "The Independent" },
-  { value: "New Age", label: "New Age" },
-  { value: "Dhaka Tribune", label: "Dhaka Tribune" },
-];
-
 const AddArticle = () => {
 
   const axiosPublic = useAxiosPublic();
@@ -30,6 +25,15 @@ const AddArticle = () => {
   const Diagnose = (e) => {
     getValue(Array.isArray(e) ? e.map((x) => x.label) : []);
   };
+
+  const { data: publishers = [] } = useQuery({
+    queryKey: ["title"],
+    queryFn: async () => {
+      const res = await axiosPublic.get("/title");
+      console.log(res.data);
+      return res.data; // Add this line to return the data
+    },
+  });
 
 
 
@@ -41,7 +45,6 @@ const AddArticle = () => {
     const description = form.description.value;
     const image = form.image.files[0];
     const publisher = Value;
-
     const imgFile = { image: image };
 
     const res = await axiosPublic.post(image_hosting_api, imgFile, {
@@ -129,12 +132,13 @@ const AddArticle = () => {
                 <span className="label-text">Publisher</span>
               </label>
 
-              <Select
-                className="basic-single py-2 w-full"
-                classNamePrefix="select"
-                name="publisher"
-                options={publisher}
-              />
+              <select className="border-2 rounded-lg px-2 py-3 my-1 w-full bg-white" name="" id="">
+                {publishers?.map((item, index) => (
+                  <option key={index} value={item?.name}>
+                    {item?.name}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
           {/* image row */}

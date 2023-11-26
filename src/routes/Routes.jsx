@@ -11,6 +11,7 @@ import Dashboard from "../components/layout/Dashboard/Dashboard";
 import AddPublisherDashboard from "../components/layout/Dashboard/DashboardSide/AddPublisherDashboard";
 import AllArticlesDashboard from "../components/layout/Dashboard/DashboardSide/AllArticlesDashboard";
 import AllUsersDashboard from "../components/layout/Dashboard/DashboardSide/AllUsersDashboard";
+import Admin from "../components/layout/Dashboard/Admin/Admin";
 
 const routes = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ const routes = createBrowserRouter([
     path: "dashboard",
     element: <Dashboard />,
     children: [
+      { 
+        path: "admin", 
+        element: <Admin />
+      },
       { 
         path: "addPublisherDashboard", 
         element: <AddPublisherDashboard />

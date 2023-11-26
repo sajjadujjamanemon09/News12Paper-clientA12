@@ -36,7 +36,7 @@ const AddPublisherDashboard = () => {
             image: res.data.data.display_url,
             name,
           };
-          const result = await axiosPublic.post("/publisher", data);
+          const result = await axiosPublic.post("/title", data);
           console.log(result.data);
           if (result.data.insertedId) {
             toast.success("Publisher Info Added Successfully");
