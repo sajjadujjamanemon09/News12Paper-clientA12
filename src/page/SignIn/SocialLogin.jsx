@@ -10,7 +10,7 @@ const SocialLogin = () => {
   const location = useLocation();
 
   const handleGoogleLogin = () => {
-    const toastId = toast.loading("logging In");
+   
 
     logInWithGoogle()
       .then((res) => {
@@ -25,12 +25,12 @@ const SocialLogin = () => {
         axiosPublic.post("/user", userInfo).then((res) => {
           if (res.data.insertedId) {
             navigate(location.state ? location.state : "/");
-            toast.success("Login Success", { id: toastId });
+            toast.success("Login Success");
           }
         });
       })
       .catch((err) => {
-        toast.error(err.message, { id: toastId });
+        toast.error(err.message);
       });
   };
 

@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import useAuth from "../../hooks/useAuth";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { Helmet } from "react-helmet-async";
 
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
@@ -86,6 +87,9 @@ const SignUp = () => {
 
   return (
     <div>
+            <Helmet>
+        <title>News12Paper | Sign Up</title>
+      </Helmet>
 
       
       <main className="md:flex justify-evenly items-center hero min-h-[90vh]">

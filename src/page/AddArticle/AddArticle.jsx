@@ -3,8 +3,11 @@ import { useState } from "react";
 
 import { useQuery } from "@tanstack/react-query";
 
-import useAxiosPublic from "../../Hooks/useAxiosPublic";
+
 import useAuth from "../../Hooks/useAuth";
+import { Helmet } from "react-helmet-async";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+import Swal from "sweetalert2";
 
 const tags = [
   { value: "#fashion", label: "#fashion" },
@@ -72,11 +75,24 @@ const AddArticle = () => {
       };
       const result = await axiosPublic.post("/title", data);
       console.log(result.data);
+
+      if(result.data.insertedId){
+        Swal.fire({
+          title: "Success!",
+          text: "Article Added Successfully.",
+          icon: "success",
+        });
+      }
     }
   };
 
   return (
-    <div className="mt-20 py-10">
+<>
+<Helmet>
+  <title>News12Paper | Add Articles</title>
+  
+</Helmet>
+<div className="mt-20 py-10">
       <div className="bg-base-300 rounded-xl my-20 p-14 py-20 max-w-5xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-extrabold pb-8">Add New Article</h2>
@@ -176,6 +192,7 @@ const AddArticle = () => {
         </form>
       </div>
     </div>
+</>
   );
 };
 

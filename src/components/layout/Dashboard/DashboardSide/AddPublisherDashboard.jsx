@@ -5,6 +5,7 @@
 
 import toast from "react-hot-toast";
 import useAxiosPublic from "../../../../hooks/useAxiosPublic";
+import { Helmet } from "react-helmet-async";
 
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
@@ -45,7 +46,12 @@ const AddPublisherDashboard = () => {
       };
     
       return (
-        <div className="bg-gray-50 h-screen flex items-center justify-center">
+<>
+<Helmet>
+  <title>News12Paper | Add Publisher DashBoard</title>
+  
+</Helmet>
+<div className="bg-gray-50 h-screen flex items-center justify-center">
           <div className=" flex flex-col justify-center py-5 sm:px-6 lg:px-8 px-6">
          
             <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -108,6 +114,7 @@ const AddPublisherDashboard = () => {
             </div>
           </div>
         </div>
+</>
       );
     };
 

@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../../hooks/useAxiosPublic";
 import swal from "sweetalert";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -33,7 +34,11 @@ const AllUsersDashboard = () => {
     }
   };
   return (
-    <div>
+<>
+<Helmet>
+  <title>News12Paper | DashBoard | All User DashBoard</title>
+</Helmet>
+<div>
       <table className="min-w-full divide-y divide-gray-200 overflow-x-auto">
         <thead className="bg-gray-50">
           <tr>
@@ -109,6 +114,7 @@ const AllUsersDashboard = () => {
         </tbody>
       </table>
     </div>
+</>
   );
 };
 

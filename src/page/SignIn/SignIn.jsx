@@ -5,6 +5,7 @@ import useAuth from "../../hooks/useAuth";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import SocialLogin from "./SocialLogIn";
+import { Helmet } from "react-helmet-async";
 
 const SignIn = () => {
   const { user, login } = useAuth();
@@ -19,23 +20,22 @@ const SignIn = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    const toastId = toast.loading("Logging in...");
+
 
     try {
       await login(email, password);
-      toast.success("Logged in successfully", { id: toastId });
+     
       Navigate(location?.state ? location?.state : "/");
     } catch (err) {
-      toast.error(err.message, { id: toastId });
+      toast.error(err.message);
     }
   };
 
   return (
     <div>
-      {/* <Helmet>
-        <meta charSet="utf-8" />
-        <title>Daily News - Sign in</title>
-      </Helmet> */}
+      <Helmet>
+        <title>News12Paper | Sign in</title>
+      </Helmet>
       <main className="w-full max-w-md mx-auto p-6">
         <div className="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-black dark:border-black">
           <div className="p-4 sm:p-7">
