@@ -12,8 +12,6 @@ const AllArticlesDashboard = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-
-
   const axiosPublic = useAxiosPublic();
   const { data: articles = [], refetch } = useQuery({
     queryKey: ["title"],
@@ -81,7 +79,6 @@ const AllArticlesDashboard = () => {
       console.log(res.data);
     });
   };
-
 
   return (
     <>
@@ -190,7 +187,8 @@ const AllArticlesDashboard = () => {
                         Approve
                       </button>
                     )}
-                    <button onClick={() => handleOpen(article._id)}
+                    <button
+                      onClick={() => handleOpen(article._id)}
                       href="#"
                       className="ml-2 text-red-600 hover:text-red-900"
                     >
@@ -219,10 +217,10 @@ const AllArticlesDashboard = () => {
                     </button>
                   </td>
                   <DeclineModals
-                  open={open}
-                  article={article}
-                  handleClose={handleClose}
-                />
+                    open={open}
+                    article={article}
+                    handleClose={handleClose}
+                  />
                 </tr>
               </>
             ))}

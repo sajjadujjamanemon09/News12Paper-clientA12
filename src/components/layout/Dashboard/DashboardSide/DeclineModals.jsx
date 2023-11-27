@@ -1,7 +1,4 @@
-
-
 import Box from "@mui/material/Box";
-
 
 import Modal from "@mui/material/Modal";
 
@@ -22,10 +19,6 @@ const style = {
 
 const DeclineModals = ({ open, handleClose, article }) => {
   const axiosPublic = useAxiosPublic();
-  //   const { articles } = useArticle
-
-  //   console.log("article", article);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
