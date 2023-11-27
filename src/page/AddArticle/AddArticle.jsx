@@ -1,8 +1,10 @@
 import Select from "react-select";
 import { useState } from "react";
-import useAxiosPublic from "../../hooks/useAxiosPublic";
+
 import { useQuery } from "@tanstack/react-query";
 
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import useAuth from "../../Hooks/useAuth";
 
 const tags = [
   { value: "#fashion", label: "#fashion" },
@@ -18,6 +20,9 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 
 const AddArticle = () => {
 
+  const {user} = useAuth()
+  console.log(user);
+
   const axiosPublic = useAxiosPublic();
 
   const [Value, getValue] = useState([]);
@@ -27,15 +32,13 @@ const AddArticle = () => {
   };
 
   const { data: publishers = [] } = useQuery({
-    queryKey: ["title"],
+    queryKey: ["publisher"],
     queryFn: async () => {
-      const res = await axiosPublic.get("/title");
+      const res = await axiosPublic.get("/publisher");
       console.log(res.data);
       return res.data; // Add this line to return the data
     },
   });
-
-
 
   const handleAddTitle = async (e) => {
     e.preventDefault();
@@ -44,7 +47,7 @@ const AddArticle = () => {
     const title = form.title.value;
     const description = form.description.value;
     const image = form.image.files[0];
-    const publisher = Value;
+    const publisher = form.publisher.value;
     const imgFile = { image: image };
 
     const res = await axiosPublic.post(image_hosting_api, imgFile, {
@@ -60,14 +63,17 @@ const AddArticle = () => {
         tags,
         description,
         publisher,
+         email : user.email,
+         authorImage : user.photoURL,
+         authorName : user.displayName,
         image: res.data.data.display_url,
-        status: 'pending'
+        status: "pending",
+        date: new Date()
       };
       const result = await axiosPublic.post("/title", data);
       console.log(result.data);
     }
   };
-
 
   return (
     <div className="mt-20 py-10">
@@ -132,7 +138,11 @@ const AddArticle = () => {
                 <span className="label-text">Publisher</span>
               </label>
 
-              <select className="border-2 rounded-lg px-2 py-3 my-1 w-full bg-white" name="" id="">
+              <select
+                className="border-2 rounded-lg px-2 py-3 my-1 w-full bg-white"
+                name="publisher"
+                id=""
+              >
                 {publishers?.map((item, index) => (
                   <option key={index} value={item?.name}>
                     {item?.name}

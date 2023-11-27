@@ -5,10 +5,10 @@ import { Chart } from "react-google-charts";
 
 export const data = [
   ["Element", "Density", { role: "style" }],
-  ["Copper", 8.94, "#b87333"], // RGB value
-  ["Silver", 10.49, "silver"], // English color name
-  ["Gold", 19.3, "gold"],
-  ["Platinum", 21.45, "color: #e5e4e2"], // CSS-style declaration
+  ["Daily Star", 8.94, "#b87333"], // RGB value
+  ["New Age", 10.49, "silver"], // English color name
+  ["Dhaka Tribune", 19.3, "gold"],
+  ["The Independent", 21.45, "color: #e5e4e2"], // CSS-style declaration
 ];
 
 const BarChart = () => {

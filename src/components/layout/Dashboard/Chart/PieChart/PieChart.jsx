@@ -5,11 +5,11 @@ import Container from "../../../../ui/Container";
 
 export const data = [
   ["Task", "Hours per Day"],
-  ["Work", 11],
-  ["Eat", 2],
-  ["Commute", 2],
-  ["Watch TV", 2],
-  ["Sleep", 7],
+  ["Daily Star", 11],
+  ["The Independent", 2],
+  ["New Age", 2],
+  ["Dhaka Tribune", 2],
+  ["Dhaka News", 7],
 ];
 
 export const options = {

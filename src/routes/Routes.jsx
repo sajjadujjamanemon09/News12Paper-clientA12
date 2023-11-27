@@ -12,6 +12,7 @@ import AddPublisherDashboard from "../components/layout/Dashboard/DashboardSide/
 import AllArticlesDashboard from "../components/layout/Dashboard/DashboardSide/AllArticlesDashboard";
 import AllUsersDashboard from "../components/layout/Dashboard/DashboardSide/AllUsersDashboard";
 import Admin from "../components/layout/Dashboard/Admin/Admin";
+import Profile from "../page/Profile/Profile";
 
 const routes = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const routes = createBrowserRouter([
       {
         path: "signUp",
         element: <SignUp />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
       },
     ],
   },
