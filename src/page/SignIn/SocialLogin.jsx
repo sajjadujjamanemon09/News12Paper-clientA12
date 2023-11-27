@@ -1,33 +1,30 @@
-
-import useAuth from "../../Hooks/useAuth";
-import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 import toast from "react-hot-toast";
 
 const SocialLogin = () => {
-  const { googleLogin } = useAuth();
+  const { logInWithGoogle } = useAuth();
   const axiosPublic = useAxiosPublic();
   const navigate = useNavigate();
-  const location = useLocation()
+  const location = useLocation();
 
   const handleGoogleLogin = () => {
     const toastId = toast.loading("logging In");
 
-    googleLogin()
+    logInWithGoogle()
       .then((res) => {
-        
         const userInfo = {
           email: res.user.email,
           name: res.user.displayName,
           date: new Date(),
-          image:res.user.photoURL
+          image: res.user.photoURL,
         };
-        navigate('/')
-       
+        navigate("/");
 
         axiosPublic.post("/user", userInfo).then((res) => {
           if (res.data.insertedId) {
-            navigate(location.state? location.state : '/');
+            navigate(location.state ? location.state : "/");
             toast.success("Login Success", { id: toastId });
           }
         });

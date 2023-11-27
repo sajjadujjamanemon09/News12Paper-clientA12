@@ -2,11 +2,13 @@ import { Link, NavLink } from "react-router-dom";
 import { FaUserCheck } from 'react-icons/fa';
 import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
+import useAdmin from "../../../hooks/useAdmin";
 
 
 const Navbar = () => {
 
   const {user, logOut} = useContext(AuthContext)
+  const {isAdmin} = useAdmin()
 
   const handleSignOut = () => {
     logOut()
@@ -19,7 +21,9 @@ const Navbar = () => {
       <li><NavLink to='/'>Home</NavLink></li>
       <li><NavLink to='/addArticles'>Add Articles</NavLink></li>
       <li><NavLink to='/allArticles'>All Articles</NavLink></li>
-      <li><NavLink to='/dashboard/admin'>Dashboard</NavLink></li>
+     {
+      isAdmin &&  <li><NavLink to='/dashboard/admin'>Dashboard</NavLink></li>
+     }
       <li><NavLink to='/myArticles'>My Articles</NavLink></li>
       <li><NavLink to='/premiumArticles'>Premium Articles</NavLink></li>
       <li><NavLink to='/subscription'>Subscription</NavLink></li>
