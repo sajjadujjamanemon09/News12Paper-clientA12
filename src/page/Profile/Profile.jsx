@@ -1,12 +1,15 @@
-import { FaEdit } from "react-icons/fa";
+
 import useAuth from "../../hooks/useAuth";
+import UpdateProfile from "./UpdateProfile";
 
 const Profile = () => {
   const {user} = useAuth()
   return (
     <div className="flex justify-center items-center h-screen">
       <div className="w-96 px-14 py-16  text-center bg-gray-300 rounded-lg lg:mt-0 xl:px-10">
-        <FaEdit className="text-2xl"></FaEdit>
+        <div className="mb-12 flex justify-end">
+        <button><UpdateProfile></UpdateProfile></button>
+        </div>
         <div className="space-y-4 xl:space-y-6">
           <img
             className="mx-auto rounded-full h-36 w-36"

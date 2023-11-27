@@ -1,10 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
+import useAxiosPublic from "../../../../hooks/useAxiosPublic";
 
+import Swal from "sweetalert2";
 
 const AllArticlesDashboard = () => {
   const axiosPublic = useAxiosPublic();
-  const { data: articles = [] } = useQuery({
+  const { data: articles = [], refetch } = useQuery({
     queryKey: ["title"],
     queryFn: async () => {
       const res = await axiosPublic.get("/title");
@@ -12,6 +13,55 @@ const AllArticlesDashboard = () => {
       return res.data; // Add this line to return the data
     },
   });
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosPublic.delete(`/title/${id}`).then((res) => {
+          if (res.data.deletedCount > 0) {
+            refetch();
+            Swal.fire({
+              title: "Deleted!",
+              text: "User Deleted Successfully.",
+              icon: "success",
+            });
+          }
+        });
+      }
+    });
+  };
+  const handlePremium = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Premium it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosPublic.patch(`/title/premium/${id}`).then((res) => {
+          if (res.data.modifiedCount > 0) {
+            refetch();
+            Swal.fire({
+              title: "Premium!",
+              text: "Article Premium Successfully.",
+              icon: "success",
+            });
+          }
+        });
+      }
+    });
+  };
 
   return (
     <div>
@@ -88,9 +138,7 @@ const AllArticlesDashboard = () => {
                   </div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="text-sm text-gray-900">
-                    {article?.title}
-                  </div>
+                  <div className="text-sm text-gray-900">{article?.title}</div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
@@ -114,12 +162,24 @@ const AllArticlesDashboard = () => {
                 </td>
 
                 <td className="px-6  py-4 whitespace-nowrap  text-sm font-medium">
-                  <a href="#" className="text-indigo-600 hover:text-indigo-900">
-                    Premium
-                  </a>
-                  <a href="#" className="ml-2 text-red-600 hover:text-red-900">
+                  {article.quality == "premium" ? (
+                    <p>Premium</p>
+                  ) : (
+                    <button
+                      onClick={() => handlePremium(article._id)}
+                      href="#"
+                      className="text-indigo-600 hover:text-indigo-900"
+                    >
+                      Make Premium
+                    </button>
+                  )}
+                  <button
+                    onClick={() => handleDelete(article._id)}
+                    href="#"
+                    className="ml-2 text-red-600 hover:text-red-900"
+                  >
                     Delete
-                  </a>
+                  </button>
                 </td>
               </tr>
             </>

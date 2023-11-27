@@ -2,6 +2,7 @@
 // import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 import { useInfiniteQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet-async";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 const getArticles = async ({ pageParam = 0 }) => {
@@ -42,7 +43,11 @@ const AllArticles = () => {
   // })
 
   return (
-    <div>
+<>
+<Helmet>
+    <title>News12Paper | All Article</title>
+</Helmet>
+<div>
       <InfiniteScroll
         dataLength={articles ? articles.length : 0}
         next={() => fetchNextPage()}
@@ -64,6 +69,7 @@ const AllArticles = () => {
         </div>
       </InfiniteScroll>
     </div>
+</>
   );
 };
 
