@@ -43,33 +43,34 @@ const AllArticles = () => {
   // })
 
   return (
-<>
-<Helmet>
-    <title>News12Paper | All Article</title>
-</Helmet>
-<div>
-      <InfiniteScroll
-        dataLength={articles ? articles.length : 0}
-        next={() => fetchNextPage()}
-        hasMore={hasNextPage}
-        loading={<div>Loading..</div>}
-      >
-        <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 my-10">
-          {articles &&
-            articles.map((article, idx) => {
-              return (
-              <div 
-              className="border-1 p-2 bg-slate-200 rounded-lg"
-              key={idx}>
-                <p className="text-2xl">{idx + 1}</p>
-                <h2>{article.description}</h2>
-
-              </div>)
-            })}
-        </div>
-      </InfiniteScroll>
-    </div>
-</>
+    <>
+      <Helmet>
+        <title>News12Paper | All Article</title>
+      </Helmet>
+      <div>
+        <InfiniteScroll
+          dataLength={articles ? articles.length : 0}
+          next={() => fetchNextPage()}
+          hasMore={hasNextPage}
+          loading={<div>Loading..</div>}
+        >
+          <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 my-10">
+            {articles &&
+              articles.map((article, idx) => {
+                return (
+                  <div
+                    className="border-1 p-2 bg-slate-200 rounded-lg"
+                    key={idx}
+                  >
+                    <p className="text-2xl">{idx + 1}</p>
+                    <h2>{article.description}</h2>
+                  </div>
+                );
+              })}
+          </div>
+        </InfiniteScroll>
+      </div>
+    </>
   );
 };
 
