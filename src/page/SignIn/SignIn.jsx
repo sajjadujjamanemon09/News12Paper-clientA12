@@ -6,11 +6,10 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import SocialLogin from "./SocialLogIn";
 
-
 const SignIn = () => {
-  const {user, login} = useAuth();
+  const { user, login } = useAuth();
   console.log(user);
-  
+
   const Navigate = useNavigate();
   const location = useLocation();
 
@@ -26,13 +25,10 @@ const SignIn = () => {
       await login(email, password);
       toast.success("Logged in successfully", { id: toastId });
       Navigate(location?.state ? location?.state : "/");
-
     } catch (err) {
       toast.error(err.message, { id: toastId });
     }
   };
-
-
 
   return (
     <div>
