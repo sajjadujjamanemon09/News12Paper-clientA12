@@ -1,23 +1,28 @@
+import { FaEdit } from "react-icons/fa";
+import useAuth from "../../hooks/useAuth";
+
 const Profile = () => {
+  const {user} = useAuth()
   return (
     <div className="flex justify-center items-center h-screen">
-      <div className="w-96 px-6 py-6  text-center bg-gray-800 rounded-lg lg:mt-0 xl:px-10">
+      <div className="w-96 px-14 py-16  text-center bg-gray-300 rounded-lg lg:mt-0 xl:px-10">
+        <FaEdit className="text-2xl"></FaEdit>
         <div className="space-y-4 xl:space-y-6">
           <img
             className="mx-auto rounded-full h-36 w-36"
-            src="https://thispersondoesnotexist.com/image"
+            src={user?.photoURL}
             alt="author avatar"
           />
           <div className="space-y-2">
             <div className="flex justify-center items-center flex-col space-y-3 text-lg font-medium leading-6">
-              <h3 className="text-white">John Doe</h3>
-              <p className="text-indigo-300">Web Developer</p>
+              <h3 className="text-black">{user?.displayName}</h3>
+              <p className="text-green-800">{user?.email}</p>
               <div className="flex justify-center mt-5 space-x-5">
                 <a
                   href="#"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block text-gray-400"
+                  className="inline-block text-gray-800"
                 >
                   <span className="sr-only">Twitter</span>
                   <svg
@@ -25,7 +30,7 @@ const Profile = () => {
                     fill="currentColor"
                     strokeWidth={0}
                     viewBox="0 0 512 512"
-                    className="w-6 h-6 text-gray-400 hover:text-gray-100"
+                    className="w-6 h-6 text-gray-800 hover:text-gray-100"
                     height="1em"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +42,7 @@ const Profile = () => {
                   href="#"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block text-gray-400"
+                  className="inline-block text-gray-800"
                 >
                   <span className="sr-only">GitHub</span>
                   <svg
@@ -45,7 +50,7 @@ const Profile = () => {
                     fill="currentColor"
                     strokeWidth={0}
                     viewBox="0 0 496 512"
-                    className="w-6 h-6 text-gray-400 hover:text-gray-100"
+                    className="w-6 h-6 text-gray-800 hover:text-gray-100"
                     height="1em"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +62,7 @@ const Profile = () => {
                   href="#"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block text-gray-400"
+                  className="inline-block text-gray-800"
                 >
                   <span className="sr-only">Linkedin</span>
                   <svg
@@ -65,7 +70,7 @@ const Profile = () => {
                     fill="currentColor"
                     strokeWidth={0}
                     viewBox="0 0 448 512"
-                    className="w-6 h-6 text-gray-400 hover:text-gray-100"
+                    className="w-6 h-6 text-gray-800 hover:text-gray-100"
                     height="1em"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
