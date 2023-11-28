@@ -2,7 +2,10 @@
 // import InfiniteScroll from "react-infinite-scroll-component";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { FaSearch } from "react-icons/fa";
+import {  FaSearch } from "react-icons/fa";
+import { IoDiamondSharp } from "react-icons/io5";
+import Lottie from "lottie-react";
+import diamond from '../../../../public/Animation - 1701181858166.json'
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
@@ -98,7 +101,9 @@ const AllArticles = () => {
                       />
                     </div>
                     <div className="card-body w-3/5">
+                    
                       <h2 className="card-title">{article.title}</h2>
+                    {article?.quality == 'premium' && <p className=""><IoDiamondSharp /></p>}
                       <p className="">{article.publisher}</p>
                       <p>
                         {article.description.split(" ").slice(0, 35).join(" ")}{" "}
@@ -127,12 +132,15 @@ const AllArticles = () => {
                       />
                     </div>
                     <div className="card-body w-3/5">
-                      <h2 className="card-title">{article.title}</h2>
+               <div className="absolute right-0 w-24 top-2">
+                    {article?.quality == 'premium' && <Lottie className="" animationData={diamond} loop={true} />}
+               </div>
+               <h2 className="card-title mr-5">{article.title.split(" ").slice(0, 10).join(" ")}{" "}</h2>
                       <span className="badge badge-accent">
                         {article.publisher}
                       </span>
-                      <p>
-                        {article.description.split(" ").slice(0, 35).join(" ")}{" "}
+                      <p className="mr-3 pb-10 mb-5">
+                        {article.description.split(" ").slice(0, 25).join(" ")}{" "}
                         .....
                       </p>
                       <div className="card-actions justify-end">
