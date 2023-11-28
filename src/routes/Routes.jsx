@@ -14,6 +14,8 @@ import AllUsersDashboard from "../components/layout/Dashboard/DashboardSide/AllU
 import Admin from "../components/layout/Dashboard/Admin/Admin";
 import Profile from "../page/Profile/Profile";
 import MyArticle from "../page/MyArticle/MyArticle";
+import EditMyArticle from "../page/MyArticle/EditMyArticle";
+import ViewArticleDetails from "../page/AllArticle/AllArticle/ViewArticleDetails";
 
 const routes = createBrowserRouter([
   {
@@ -44,6 +46,18 @@ const routes = createBrowserRouter([
       {
         path: "myArticle",
         element: <MyArticle />,
+      },
+      {
+        path: "viewArticleDetails/:id",
+        element: <ViewArticleDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/title/viewDetails/${params.id}`),
+      },
+      {
+        path: "editMyArticle/:id",
+        element: <EditMyArticle />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/title/update/${params.id}`),
       },
       {
         path: "signIn",

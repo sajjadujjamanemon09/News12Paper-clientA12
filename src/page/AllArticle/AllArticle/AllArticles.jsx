@@ -1,46 +1,61 @@
-// import { useQuery } from "@tanstack/react-query";
-// import useAxiosPublic from "../../../hooks/useAxiosPublic";
-
-import { useInfiniteQuery } from "@tanstack/react-query";
+// import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
+// import InfiniteScroll from "react-infinite-scroll-component";
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
-import InfiniteScroll from "react-infinite-scroll-component";
+import { FaSearch } from "react-icons/fa";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
 
-const getArticles = async ({ pageParam = 0 }) => {
-  const res = await fetch(
-    `https://api.realworld.io/api/articles?limit=10&offset=${pageParam}`
-  );
-  const data = await res.json();
+// const getArticles = async ({ pageParam = 0 }) => {
+//   const res = await fetch(
+//     `https://api.realworld.io/api/articles?limit=10&offset=${pageParam}`
+//   );
+//   const data = await res.json();
 
-  return { ...data, prevOffset: pageParam };
-};
+//   return { ...data, prevOffset: pageParam };
+// };
 
 const AllArticles = () => {
-  const { data, fetchNextPage, hasNextPage } = useInfiniteQuery({
-    queryKey: ["articles"],
-    queryFn: getArticles,
-    getNextPageParam: (lastPage) => {
-      if (lastPage.prevOffset + 10 > lastPage.articlesCount) {
-        return false;
-      }
-      return lastPage.prevOffset + 10;
+  const axiosPublic = useAxiosPublic();
+  const [searchInput, setSearchInput] = useState("");
+  const [filteredArticles, setFilteredArticles] = useState([]);
+
+  const { data: articles = [], isLoading } = useQuery({
+    queryKey: ["title"],
+    queryFn: async () => {
+      const res = await axiosPublic.get("/title/approve");
+      console.log(res.data);
+      return res.data; // Add this line to return the data
     },
   });
 
-  const articles = data?.pages.reduce((acc, page) => {
-    console.log(page);
-    return [...acc, ...page.articles];
-  }, []);
-
-  // const axiosPublic = useAxiosPublic()
-
-  // const {data} = useQuery({
-  //     queryKey: ['title'],
-  //     queryFn: async() => {
-  //         const res = await axiosPublic.get('/title')
-  //         console.log(res.data);
-  //         return res.data
+  // const { data, fetchNextPage, hasNextPage } = useInfiniteQuery({
+  //   queryKey: ["articles"],
+  //   queryFn: getArticles,
+  //   getNextPageParam: (lastPage) => {
+  //     if (lastPage.prevOffset + 10 > lastPage.articlesCount) {
+  //       return false;
   //     }
-  // })
+  //     return lastPage.prevOffset + 10;
+  //   },
+  // });
+
+  // const articles = data?.pages.reduce((acc, page) => {
+  //   return [...acc, ...page.articles];
+  // }, []);
+
+  const handleSearchInput = (event) => {
+    const searchValue = event.target.value;
+    setSearchInput(searchValue);
+
+    // Filter the articles based on the search input
+    const filtered = articles.filter((article) =>
+      article.title.toLowerCase().includes(searchValue.toLowerCase())
+    );
+
+    setFilteredArticles(filtered);
+  };
 
   return (
     <>
@@ -48,39 +63,90 @@ const AllArticles = () => {
         <title>News12Paper | All Article</title>
       </Helmet>
       <div>
-        <InfiniteScroll
-          dataLength={articles ? articles.length : 0}
-          next={() => fetchNextPage()}
-          hasMore={hasNextPage}
-          loading={<div>Loading..</div>}
-        >
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 my-10">
-            {articles &&
-              articles.map((article, idx) => {
-                return (
-                  <div className="border-1 p-2 rounded-lg" key={idx}>
-                    <div className="card h-[23rem] card-side bg-base-200 shadow-xl">
+        <div className="flex justify-end mt-10 pr-8">
+          <label className="hidden">Search</label>
+          <div className="relative">
+            <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+              <button
+                type="button"
+                title="search"
+                className="p-1 focus:outline-none focus:ring"
+              >
+                <FaSearch></FaSearch>
+              </button>
+            </span>
+            <input
+              type="search"
+              name="Search"
+              placeholder="Search..."
+              className="border border-black w-32 py-2 pl-10 text-sm rounded-md sm:w-auto focus:outline-none bg-base-200 text-black"
+              value={searchInput}
+              onChange={handleSearchInput}
+            />
+          </div>
+        </div>
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 my-10">
+          {searchInput && filteredArticles.length > 0
+            ? filteredArticles.map((article, idx) => (
+                <div className="border-1 p-2 rounded-lg" key={idx}>
+                  <div className="card h-[23rem] card-side bg-base-200 shadow-xl">
                     <div className="w-2/5">
-                  
-                        <img className="h-full w-full object-cover" src='https://i.ibb.co/yR5KzH0/R-1.jpg' alt="Movie" />
-               
+                      <img
+                        className="h-full w-full object-cover"
+                        src={article.image}
+                        alt="Movie"
+                      />
                     </div>
-                      <div className="card-body w-3/5">
-                        <h2 className="card-title">{article.title}</h2>
-                        <p>{article.description}</p>
-                        <p>{article.publisher}</p>
-                        <div className="card-actions justify-end">
-                          <button className="btn btn-primary">
+                    <div className="card-body w-3/5">
+                      <h2 className="card-title">{article.title}</h2>
+                      <p className="">{article.publisher}</p>
+                      <p>
+                        {article.description.split(" ").slice(0, 35).join(" ")}{" "}
+                        .....
+                      </p>
+                      <div className="card-actions justify-end">
+                        <button className="btn btn-primary">
+                          <Link to={`/viewArticleDetails/${article._id}`}>
                             View Details
-                          </button>
-                        </div>
+                          </Link>
+                        </button>
                       </div>
                     </div>
                   </div>
-                );
-              })}
-          </div>
-        </InfiniteScroll>
+                </div>
+              ))
+            : articles &&
+              articles.map((article, idx) => (
+                <div className="border-1 p-2 rounded-lg" key={idx}>
+                  <div className="card h-[23rem] card-side bg-base-200 shadow-xl">
+                    <div className="w-2/5">
+                      <img
+                        className="h-full w-full object-cover"
+                        src={article.image}
+                        alt="Movie"
+                      />
+                    </div>
+                    <div className="card-body w-3/5">
+                      <h2 className="card-title">{article.title}</h2>
+                      <span className="badge badge-accent">
+                        {article.publisher}
+                      </span>
+                      <p>
+                        {article.description.split(" ").slice(0, 35).join(" ")}{" "}
+                        .....
+                      </p>
+                      <div className="card-actions justify-end">
+                        <button className="btn absolute bottom-4 btn-neutral">
+                          <Link to={`/viewArticleDetails/${article._id}`}>
+                            View Details
+                          </Link>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+        </div>
       </div>
     </>
   );

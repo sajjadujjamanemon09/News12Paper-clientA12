@@ -116,7 +116,7 @@ const MyArticle = () => {
                   </td>
 
                   <td className="px-6  text-center py-4 whitespace-nowrap">
-                    <Link>
+                  <Link to={`/viewArticleDetails/${article._id}`}>
                       <span className="px-2 gap-2 items-center inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                         View Details <FaArrowRight />
                       </span>
@@ -150,7 +150,7 @@ const MyArticle = () => {
                       </Link>
                       <div className="border-r-2 border-gray-400"></div>
                       <Link
-                      // to={`/update/${article._id}`}
+                      to={`/editMyArticle/${article._id}`}
                       >
                         <FaEdit className="text-black  text-2xl" />
                       </Link>
