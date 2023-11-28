@@ -24,30 +24,30 @@ const MyArticle = () => {
       return res.data;
     },
   });
-//   const handleDelete = (id) => {
-//     Swal.fire({
-//       title: "Are you sure?",
-//       text: "You won't be able to revert this!",
-//       icon: "warning",
-//       showCancelButton: true,
-//       confirmButtonColor: "#3085d6",
-//       cancelButtonColor: "#d33",
-//       confirmButtonText: "Yes, delete it!",
-//     }).then((result) => {
-//       if (result.isConfirmed) {
-//         axiosPublic.delete(`/title/myArticles/${id}`).then((res) => {
-//           if (res.data.deletedCount > 0) {
-//             refetch();
-//             Swal.fire({
-//               title: "Deleted!",
-//               text: "User Deleted Successfully.",
-//               icon: "success",
-//             });
-//           }
-//         });
-//       }
-//     });
-//   };
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosPublic.delete(`/title/myArticles/${id}`).then((res) => {
+          if (res.data.deletedCount > 0) {
+            refetch();
+            Swal.fire({
+              title: "Deleted!",
+              text: "User Deleted Successfully.",
+              icon: "success",
+            });
+          }
+        });
+      }
+    });
+  };
   return (
     <div className="">
       <Helmet>
