@@ -6,6 +6,8 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import SocialLogin from "./SocialLogIn";
 import { Helmet } from "react-helmet-async";
+import Lottie from "lottie-react";
+import finger from "../../../finger.json"
 
 const SignIn = () => {
   const { user, login } = useAuth();
@@ -36,8 +38,9 @@ const SignIn = () => {
       <Helmet>
         <title>News12Paper | Sign in</title>
       </Helmet>
-      <main className="w-full max-w-md mx-auto p-6">
-        <div className="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-black dark:border-black">
+      <main className="w-full max-w-5xl mx-auto p-6">
+<div className="flex h-[64vh] justify-between items-center">
+<div className="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-black dark:border-black">
           <div className="p-4 sm:p-7">
             <div className="text-center">
               <h1 className="block text-2xl font-bold text-gray-800 dark:text-white">
@@ -182,6 +185,8 @@ const SignIn = () => {
             </div>
           </div>
         </div>
+          <div className="w-96"><Lottie animationData={finger} loop={true}/></div>
+</div>
       </main>
     </div>
   );

@@ -16,17 +16,19 @@ const Navbar = () => {
     .catch()
   }
 
-  const navLinks = (
+  const navLinks = user ? (
     <>
       <li><NavLink to='/'>Home</NavLink></li>
       <li><NavLink to='/addArticles'>Add Articles</NavLink></li>
       <li><NavLink to='/allArticles'>All Articles</NavLink></li>
-     {
-      isAdmin &&  <li><NavLink to='/dashboard/admin'>Dashboard</NavLink></li>
-     }
+      {isAdmin &&  <li><NavLink to='/dashboard/admin'>Dashboard</NavLink></li>}
       <li><NavLink to='/myArticle'>My Articles</NavLink></li>
-      <li><NavLink to='/premiumArticles'>Premium Articles</NavLink></li>
+      <li><NavLink to='/premiumArticle'>Premium Articles</NavLink></li>
       <li><NavLink to='/subscription'>Subscription</NavLink></li>
+    </>
+  ) : (
+    <>
+      <li><NavLink to='/'>Home</NavLink></li>
     </>
   );
 

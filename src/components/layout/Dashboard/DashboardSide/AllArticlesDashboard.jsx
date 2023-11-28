@@ -160,7 +160,7 @@ const AllArticlesDashboard = () => {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm text-gray-900">
-                      {article?.title}
+                    {article.title.split(" ").slice(0, 6).join(" ")}
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
