@@ -9,19 +9,19 @@ import { Link } from "react-router-dom";
 import SectionTitle from "../../../components/section/SectionTitle";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-// const AllArticles = () => {
-//   const [dataSource, setDataSource] = useState(Array.from({ length: 2 }));
-//   const [hasMore, setHasMore] = useState(true);
+const AllArticles = () => {
+  const [dataSource, setDataSource] = useState(Array.from({ length: 2 }));
+  const [hasMore, setHasMore] = useState(true);
 
-//   const fetchData = () => {
-//     if (dataSource.length < articles.length) {
-//       setTimeout(() => {
-//         setDataSource(dataSource.concat(Array.from({ length: 2 })));
-//       }, 1000);
-//     } else {
-//       setHasMore(false);
-//     }
-//   };
+  const fetchData = () => {
+    if (dataSource.length < articles.length) {
+      setTimeout(() => {
+        setDataSource(dataSource.concat(Array.from({ length: 2 })));
+      }, 1000);
+    } else {
+      setHasMore(false);
+    }
+  };
 
   const axiosPublic = useAxiosPublic();
   const { data: articles = [], isLoading } = useQuery({
