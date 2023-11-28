@@ -13,6 +13,7 @@ import AllArticlesDashboard from "../components/layout/Dashboard/DashboardSide/A
 import AllUsersDashboard from "../components/layout/Dashboard/DashboardSide/AllUsersDashboard";
 import Admin from "../components/layout/Dashboard/Admin/Admin";
 import Profile from "../page/Profile/Profile";
+import MyArticle from "../page/MyArticle/MyArticle";
 
 const routes = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const routes = createBrowserRouter([
             <AllArticles />
           </PrivateRoutes>
         ),
+      },
+      {
+        path: "myArticle",
+        element: <MyArticle />,
       },
       {
         path: "signIn",

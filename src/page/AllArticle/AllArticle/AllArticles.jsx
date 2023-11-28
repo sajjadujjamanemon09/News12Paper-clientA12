@@ -54,16 +54,28 @@ const AllArticles = () => {
           hasMore={hasNextPage}
           loading={<div>Loading..</div>}
         >
-          <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 my-10">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 my-10">
             {articles &&
               articles.map((article, idx) => {
                 return (
-                  <div
-                    className="border-1 p-2 bg-slate-200 rounded-lg"
-                    key={idx}
-                  >
-                    <p className="text-2xl">{idx + 1}</p>
-                    <h2>{article.description}</h2>
+                  <div className="border-1 p-2 rounded-lg" key={idx}>
+                    <div className="card h-[23rem] card-side bg-base-200 shadow-xl">
+                    <div className="w-2/5">
+                  
+                        <img className="h-full w-full object-cover" src='https://i.ibb.co/yR5KzH0/R-1.jpg' alt="Movie" />
+               
+                    </div>
+                      <div className="card-body w-3/5">
+                        <h2 className="card-title">{article.title}</h2>
+                        <p>{article.description}</p>
+                        <p>{article.publisher}</p>
+                        <div className="card-actions justify-end">
+                          <button className="btn btn-primary">
+                            View Details
+                          </button>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 );
               })}

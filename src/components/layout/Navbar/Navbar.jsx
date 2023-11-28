@@ -24,7 +24,7 @@ const Navbar = () => {
      {
       isAdmin &&  <li><NavLink to='/dashboard/admin'>Dashboard</NavLink></li>
      }
-      <li><NavLink to='/myArticles'>My Articles</NavLink></li>
+      <li><NavLink to='/myArticle'>My Articles</NavLink></li>
       <li><NavLink to='/premiumArticles'>Premium Articles</NavLink></li>
       <li><NavLink to='/subscription'>Subscription</NavLink></li>
     </>
