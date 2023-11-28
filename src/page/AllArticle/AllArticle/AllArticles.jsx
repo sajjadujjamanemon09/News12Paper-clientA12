@@ -120,14 +120,16 @@ const AllArticles = () => {
                           {article.publisher}
                         </span>
                         <p className="text-sm text-gray-500">
-                          {article.description.split(" ").slice(0, 50).join(" ")}
+                          {article.description
+                            .split(" ")
+                            .slice(0, 50)
+                            .join(" ")}
                         </p>
                         <Link
                           to={`/viewArticleDetails/${article._id}`}
                           className="flex items-center gap-2 mt-4 text-red-500"
                         >
-                          Read More{" "}
-                          <FaLongArrowAltRight></FaLongArrowAltRight>
+                          Read More <FaLongArrowAltRight></FaLongArrowAltRight>
                         </Link>
                       </div>
                     </div>
