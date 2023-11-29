@@ -1,9 +1,6 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 
-
-
 import Swal from "sweetalert2";
-
 
 import { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
@@ -21,8 +18,6 @@ const Checkout = ({ id }) => {
   const elements = useElements();
 
   const axiosPublic = useAxiosPublic();
-
-  
 
   useEffect(() => {
     if (user?.email) {

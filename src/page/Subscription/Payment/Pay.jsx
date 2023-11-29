@@ -3,7 +3,6 @@ import { Elements } from "@stripe/react-stripe-js";
 import { useParams } from "react-router-dom";
 import Checkout from "./Checkout";
 
-
 const stripePromise = loadStripe(import.meta.env.VITE_PUBLISHER_KEY);
 const Pay = () => {
   const { id } = useParams();

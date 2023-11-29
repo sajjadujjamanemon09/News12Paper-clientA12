@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const Subscription = () => {
-  const [pay, setPay] = useState('')
+  const [pay, setPay] = useState("");
   console.log(pay);
   const AutoplaySlider = withAutoplay(AwesomeSlider);
   return (
@@ -21,7 +21,7 @@ const Subscription = () => {
           play={true}
           cancelOnInteraction={false} // should stop playing on user interaction
           interval={1000}
-          style={{ height: "40vh" }} 
+          style={{ height: "40vh" }}
         >
           {/* banner 1 */}
           <div id="slide1" className="carousel-item relative w-full">
@@ -53,7 +53,6 @@ const Subscription = () => {
               src="https://i.ibb.co/1JBv0g7/sean-driscoll-NYSe-If-T3-JJ4-unsplash.jpg"
               className="w-full rounded-xl"
             />
-
           </div>
 
           {/* banner 5 */}
@@ -62,7 +61,6 @@ const Subscription = () => {
               src="https://i.ibb.co/J35NV52/hannah-grace-Te-r-G1-A6ru-U-unsplash.jpg"
               className="w-full rounded-xl"
             />
- 
           </div>
 
           {/* banner 6 */}
@@ -71,40 +69,36 @@ const Subscription = () => {
               src="https://i.ibb.co/Gv8t3KW/viktor-bystrov-1-QEs6h9s4-XQ-unsplash.jpg"
               className="w-full rounded-xl"
             />
-
           </div>
         </AutoplaySlider>
       </div>
 
-
       <div>
-          <div className="flex flex-col justify-center items-center min-h-screen">
-            <div className="bg-gray-100 rounded-lg shadow-lg p-16">
-              <h1 className="text-2xl font-bold mb-6">Make Payment</h1>
+        <div className="flex flex-col justify-center items-center min-h-screen">
+          <div className="bg-gray-100 rounded-lg shadow-lg p-16">
+            <h1 className="text-2xl font-bold mb-6">Make Payment</h1>
 
-              <select
-                className="w-full"
-                onChange={(e) => setPay(e.target.value)}
-                name="payment"
-                id=""
-              >
-                <option value="15">1 Minute - $15</option>
-                <option value="50">1 Days -$50</option>
-                <option value="100">3 Days -$100</option>
-              </select>
+            <select
+              className="w-full"
+              onChange={(e) => setPay(e.target.value)}
+              name="payment"
+              id=""
+            >
+              <option value="15">1 Minute - $15</option>
+              <option value="50">1 Days -$50</option>
+              <option value="100">3 Days -$100</option>
+            </select>
 
-              <div className="flex justify-center mt-6">
-               
-                  <Link to={`/pay/${pay}`}>
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                      Checkout
-                    </button>
-                  </Link>
-            
-              </div>
+            <div className="flex justify-center mt-6">
+              <Link to={`/pay/${pay}`}>
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                  Checkout
+                </button>
+              </Link>
             </div>
           </div>
         </div>
+      </div>
     </div>
   );
 };
