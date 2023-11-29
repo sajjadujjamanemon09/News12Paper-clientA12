@@ -66,13 +66,13 @@ const routes = createBrowserRouter([
         path: "viewArticleDetails/:id",
         element: <ViewArticleDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/title/viewDetails/${params.id}`),
+          fetch(`https://assignment-12-server-ivory-pi.vercel.app/title/viewDetails/${params.id}`),
       },
       {
         path: "editMyArticle/:id",
         element: <EditMyArticle />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/title/update/${params.id}`),
+          fetch(`https://assignment-12-server-ivory-pi.vercel.app/title/update/${params.id}`),
       },
       {
         path: "signIn",

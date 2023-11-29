@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import SectionTitle from "../../../components/section/SectionTitle";
 import Container from "../../../components/ui/Container";
 
@@ -96,13 +97,15 @@ our audiobooks subscriber catalog
     </ul>
   </div>
   <div className="mt-12 p-0">
-    <button
+<Link to={'/subscription'}>
+<button
       className="block w-full select-none rounded-lg bg-white py-3.5 px-7 text-center align-middle font-sans text-sm font-bold uppercase text-cyan-500 shadow-md shadow-blue-gray-500/10 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-gray-500/20 focus:scale-[1.02] focus:opacity-[0.85] focus:shadow-none active:scale-100 active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
       type="button"
       data-ripple-dark="true"
     >
       Try free for 1 month
     </button>
+</Link>
   </div>
   <p className="text-xs text-center text-black mt-4">Free for 1 month, then $10.99 per month after. Offer only available if you havent tried Premium before.Terms Apply
 Premium Duo</p>
@@ -191,13 +194,15 @@ our audiobooks subscriber catalog (plan manager only)
     </ul>
   </div>
   <div className="mt-12 p-0">
+    <Link to={'/subscription'}>
     <button
       className="block w-full select-none rounded-lg bg-white py-3.5 px-7 text-center align-middle font-sans text-sm font-bold uppercase text-cyan-500 shadow-md shadow-blue-gray-500/10 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-gray-500/20 focus:scale-[1.02] focus:opacity-[0.85] focus:shadow-none active:scale-100 active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
       type="button"
       data-ripple-dark="true"
-    >
+      >
       Get Premium Duo
     </button>
+      </Link>
   </div>
   <p className="text-xs text-center text-black mt-4">For couples who reside at the same address. Terms Apply</p>
                     </div>
@@ -284,13 +289,15 @@ our audiobooks subscriber catalog (plan manager only)
     </ul>
   </div>
   <div className="mt-12 p-0">
+    <Link to={'/subscription'}>
     <button
       className="block w-full select-none rounded-lg bg-white py-3.5 px-7 text-center align-middle font-sans text-sm font-bold uppercase text-cyan-500 shadow-md shadow-blue-gray-500/10 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-gray-500/20 focus:scale-[1.02] focus:opacity-[0.85] focus:shadow-none active:scale-100 active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
       type="button"
       data-ripple-dark="true"
-    >
+      >
       Get Premium Family
     </button>
+      </Link>
   </div>
   <p className="text-xs text-center text-black mt-4">For couples who reside at the same address. Terms Apply</p>
                     </div>

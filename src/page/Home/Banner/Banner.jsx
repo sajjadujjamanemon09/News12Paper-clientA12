@@ -9,6 +9,49 @@ const Banner = () => {
   return (
     <>
       <div className="max-w-7xl mx-auto my-14 gap-10 h-[70vh] flex">
+
+
+        <div className="w-1/3 h-full">
+          {/* card */}
+          <div className="card bg-base-200 card-side border-2 border-black rounded-lg">
+            <div className="w-2/5 h-full rounded-xl">
+              <figure>
+                <img src="https://i.ibb.co/fY5TV6k/R-1.jpg" alt="Movie" />
+              </figure>
+            </div>
+            <div className="card-body w-3/5">
+              <h2 className="card-title">New Car is released!</h2>
+              <p>The Toyota Supra Is Now Available</p>
+            </div>
+          </div>
+          {/* card */}
+          <div className="card bg-base-200 card-side border-2 border-black rounded-lg my-2">
+            <div className="w-2/5 h-full rounded-xl">
+              <figure>
+                <img src="https://i.ibb.co/PWKCLKM/OIF.jpg" alt="Movie" />
+              </figure>
+            </div>
+            <div className="card-body w-3/5">
+              <h2 className="card-title">Todays Football Match</h2>
+              <p>New Castle & Man City war start.</p>
+            </div>
+          </div>
+          {/* card */}
+          <div className="card bg-base-200 card-side border-2 border-black rounded-lg">
+            <div className="w-2/5 h-full rounded-xl">
+              <figure>
+                <img src="https://i.ibb.co/Rjs0sxj/OIF-1.jpg" alt="Movie" />
+              </figure>
+            </div>
+            <div className="card-body w-3/5">
+              <h2 className="card-title">Work on traffic lights</h2>
+              <p>
+                There will be small amount of disruption to traffic flow in
+                Longford town next week
+              </p>
+            </div>
+          </div>
+        </div>
         <div className="w-3/5">
           {" "}
           <AutoplaySlider
@@ -213,48 +256,6 @@ const Banner = () => {
             <h2 className="px-6 py-3 text-xl font-medium bg-[#2020d7] text-white">
               Latest
             </h2>
-          </div>
-        </div>
-
-        <div className="w-1/3 h-full">
-          {/* card */}
-          <div className="card bg-base-200 card-side border-2 border-black rounded-lg">
-            <div className="w-2/5 h-full rounded-xl">
-              <figure>
-                <img src="https://i.ibb.co/fY5TV6k/R-1.jpg" alt="Movie" />
-              </figure>
-            </div>
-            <div className="card-body w-3/5">
-              <h2 className="card-title">New Car is released!</h2>
-              <p>The Toyota Supra Is Now Available</p>
-            </div>
-          </div>
-          {/* card */}
-          <div className="card bg-base-200 card-side border-2 border-black rounded-lg my-2">
-            <div className="w-2/5 h-full rounded-xl">
-              <figure>
-                <img src="https://i.ibb.co/PWKCLKM/OIF.jpg" alt="Movie" />
-              </figure>
-            </div>
-            <div className="card-body w-3/5">
-              <h2 className="card-title">Todays Football Match</h2>
-              <p>New Castle & Man City war start.</p>
-            </div>
-          </div>
-          {/* card */}
-          <div className="card bg-base-200 card-side border-2 border-black rounded-lg">
-            <div className="w-2/5 h-full rounded-xl">
-              <figure>
-                <img src="https://i.ibb.co/Rjs0sxj/OIF-1.jpg" alt="Movie" />
-              </figure>
-            </div>
-            <div className="card-body w-3/5">
-              <h2 className="card-title">Work on traffic lights</h2>
-              <p>
-                There will be small amount of disruption to traffic flow in
-                Longford town next week
-              </p>
-            </div>
           </div>
         </div>
       </div>

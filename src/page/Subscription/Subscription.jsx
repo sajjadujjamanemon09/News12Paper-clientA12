@@ -1,5 +1,4 @@
 import { Helmet } from "react-helmet-async";
-// import SectionTitle from "../../components/section/SectionTitle";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
 import AwesomeSlider from "react-awesome-slider";
 import { Link } from "react-router-dom";
@@ -74,7 +73,7 @@ const Subscription = () => {
       </div>
 
       <div>
-        <div className="flex flex-col justify-center items-center min-h-screen">
+        <div className="flex flex-col justify-center items-center pb-20">
           <div className="bg-gray-100 rounded-lg shadow-lg p-16">
             <h1 className="text-2xl font-bold mb-6">Make Payment</h1>
 
