@@ -1,20 +1,34 @@
+import { useQuery } from "@tanstack/react-query";
 import SectionTitle from "../../../components/section/SectionTitle";
 import Container from "../../../components/ui/Container";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 const AllPublisher = () => {
+
+  const axiosPublic = useAxiosPublic();
+  const { data: users = [] } = useQuery({
+    queryKey: ["publisher"],
+    queryFn: async () => {
+      const res = await axiosPublic.get("/publisher");
+      console.log(res.data);
+      return res.data; // Add this line to return the data
+    },
+  });
+
   return (
     <Container>
       <div>
         <SectionTitle
           subHeading={"Publisher"}
-          heading={"TOP CONTRIBUTORS"}
+          heading={"TOP Publisher"}
         ></SectionTitle>
 
         <div className="grid grid-cols-4">
-          <img src="https://i.ibb.co/y0Yv1Wd/daily-1.png" alt="" />
-          <img src="https://i.ibb.co/9yFMbXc/daily-2-1.png" alt="" />
-          <img src="https://i.ibb.co/kS2hcCH/daily-3-1.png" alt="" />
-          <img src="https://i.ibb.co/vsbxWwd/daily-4-1.png" alt="" />
+          {
+            users.map(user => (<img key={user._id} src={user?.image} alt="" />))
+          }
+          
+       
         </div>
       </div>
     </Container>

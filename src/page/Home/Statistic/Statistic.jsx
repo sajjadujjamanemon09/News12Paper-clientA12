@@ -3,8 +3,22 @@ import SectionTitle from "../../../components/section/SectionTitle";
 import Container from "../../../components/ui/Container";
 import CountUp from "react-countup";
 import { FaUsers } from "react-icons/fa";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
+
 
 const Statistic = () => {
+
+  // const axiosPublic = useAxiosPublic();
+  // const { data: users = [] } = useQuery({
+  //   queryKey: ["user"],
+  //   queryFn: async () => {
+  //     const res = await axiosPublic.get("/user");
+  //     console.log(res.data);
+  //     return res.data; // Add this line to return the data
+  //   },
+  // });
+
   return (
     <Container>
       <SectionTitle subHeading={"CHART"} heading={"STATISTIC"}></SectionTitle>
@@ -15,7 +29,7 @@ const Statistic = () => {
             </h4>
             <p className="sm:mt-3 flex items-center gap-3 text-xl sm:text-3xl text-center font-bold text-blue-600">
               <FaUsers />
-              <CountUp delay={0.5} end={554200} />
+              <CountUp delay={0.5} end={users.length} />
               <span>+</span>
             </p>
           </div>
