@@ -8,15 +8,17 @@ import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import SectionTitle from "../../../components/section/SectionTitle";
 import InfiniteScroll from "react-infinite-scroll-component";
+import useAuth from "../../../hooks/useAuth";
 
 const AllArticles = () => {
-  const [dataSource, setDataSource] = useState(Array.from({ length: 2 }));
+  const [source, setSource] = useState(Array.from({ length: 2 }));
   const [hasMore, setHasMore] = useState(true);
+  const { user } = useAuth();
 
   const fetchData = () => {
-    if (dataSource.length < articles.length) {
+    if (source.length < articles.length) {
       setTimeout(() => {
-        setDataSource(dataSource.concat(Array.from({ length: 2 })));
+        setSource(source.concat(Array.from({ length: 2 })));
       }, 1000);
     } else {
       setHasMore(false);
@@ -30,6 +32,15 @@ const AllArticles = () => {
       const res = await axiosPublic.get("/title/approve");
       console.log(res.data);
       return res.data; // Add this line to return the data
+    },
+  });
+
+  const { data: premium = {} } = useQuery({
+    queryKey: ["user"],
+    queryFn: async () => {
+      const res = await axiosPublic.get(`/user/premiumPlan/${user.email}`);
+      console.log(res.data);
+      return res.data;
     },
   });
 
@@ -81,7 +92,7 @@ const AllArticles = () => {
         </div>
         <div>
           <InfiniteScroll
-            dataLength={dataSource.length}
+            dataLength={source.length}
             next={fetchData}
             hasMore={hasMore}
             // loader={<p>Loading...</p>}
@@ -89,13 +100,13 @@ const AllArticles = () => {
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
               {(searchInput ? searchResults : articles)
-                .slice(0, dataSource.length)
+                .slice(0, source.length)
                 .map((article, idx) => (
                   <div
                     className="border-1 p-2 rounded-lg cursor-pointer group "
                     key={idx}
                   >
-                    <div className="card h-[23rem] card-side bg-base-200 shadow-xl group-hover:scale-105">
+                    <div className="card h-[23rem] card-side bg-base-200 shadow-xl">
                       <div className="w-2/5 ">
                         <img
                           className="h-full w-full object-cover "
@@ -125,12 +136,39 @@ const AllArticles = () => {
                             .slice(0, 50)
                             .join(" ")}
                         </p>
-                        <Link
-                          to={`/viewArticleDetails/${article._id}`}
-                          className="flex items-center gap-2 mt-4 text-red-500"
-                        >
-                          Read More <FaLongArrowAltRight></FaLongArrowAltRight>
-                        </Link>
+                        {article?.quality ? (
+                          <>
+                            {premium?.premiumTaken ? (
+                              <Link to={`/viewArticleDetails/${article._id}`}>
+                                <button
+                                  className=" bg-gray-100 : flex absolute bottom-4 items-center gap-2 px-2  font-sans text-xs font-bold text-center text-red-500 uppercase align-middle transition-all rounded-lg select-none hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                                  type="button"
+                                >
+                                  View Details
+                               <FaLongArrowAltRight></FaLongArrowAltRight>
+                                </button>
+                              </Link>
+                            ) : (
+                              <button
+                                className="opacity-20 bg-gray-100 : flex absolute bottom-4 items-center gap-2 px-2  font-sans text-xs font-bold text-center text-red-500 uppercase align-middle transition-all rounded-lg select-none hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                                type="button"
+                              >
+                                View Details
+                              <FaLongArrowAltRight></FaLongArrowAltRight>
+                              </button>
+                            )}
+                          </>
+                        ) : (
+                          <Link to={`/viewArticleDetails/${article._id}`}>
+                            <button
+                              className=" bg-gray-100 : flex absolute bottom-4 items-center gap-2 px-2  font-sans text-xs font-bold text-center text-red-500 uppercase align-middle transition-all rounded-lg select-none hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                              type="button"
+                            >
+                              View Details
+                            <FaLongArrowAltRight></FaLongArrowAltRight>
+                            </button>
+                          </Link>
+                        )}
                       </div>
                     </div>
                   </div>

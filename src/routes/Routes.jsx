@@ -18,6 +18,7 @@ import EditMyArticle from "../page/MyArticle/EditMyArticle";
 import ViewArticleDetails from "../page/AllArticle/AllArticle/ViewArticleDetails";
 import PremiumArticle from "../page/PremiumArticle/PremiumArticle";
 import Subscription from "../page/Subscription/Subscription";
+import Pay from "../page/Subscription/Payment/Pay";
 
 const routes = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const routes = createBrowserRouter([
       {
         path: "myArticle",
         element: <MyArticle />,
+      },
+      {
+        path: "pay/:id",
+        element: <Pay />,
       },
       {
         path: "subscription",

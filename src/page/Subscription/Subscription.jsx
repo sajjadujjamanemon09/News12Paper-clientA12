@@ -2,18 +2,19 @@ import { Helmet } from "react-helmet-async";
 // import SectionTitle from "../../components/section/SectionTitle";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
 import AwesomeSlider from "react-awesome-slider";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Subscription = () => {
+  const [pay, setPay] = useState('')
+  console.log(pay);
   const AutoplaySlider = withAutoplay(AwesomeSlider);
   return (
     <div>
       <Helmet>
         <title>News12Paper | Subscription</title>
       </Helmet>
-      {/* <SectionTitle
-        subHeading={"PLANS"}
-        heading={"Subscription"}
-      ></SectionTitle> */}
+
       <div className="pb-28">
         {" "}
         <AutoplaySlider
@@ -74,6 +75,36 @@ const Subscription = () => {
           </div>
         </AutoplaySlider>
       </div>
+
+
+      <div>
+          <div className="flex flex-col justify-center items-center min-h-screen">
+            <div className="bg-gray-100 rounded-lg shadow-lg p-16">
+              <h1 className="text-2xl font-bold mb-6">Make Payment</h1>
+
+              <select
+                className="w-full"
+                onChange={(e) => setPay(e.target.value)}
+                name="payment"
+                id=""
+              >
+                <option value="15">1 Minute - $15</option>
+                <option value="50">1 Days -$50</option>
+                <option value="100">3 Days -$100</option>
+              </select>
+
+              <div className="flex justify-center mt-6">
+               
+                  <Link to={`/pay/${pay}`}>
+                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                      Checkout
+                    </button>
+                  </Link>
+            
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
   );
 };
