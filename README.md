@@ -1,6 +1,6 @@
 ⦿ Project Name :- News 12 Paper
 
-⦿ Project Live Link :- ()
+⦿ Project Live Link :- (https://assignment-12-c8954.web.app)
 
 Here added some bullet points of this Project:
 
