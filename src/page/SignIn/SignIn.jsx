@@ -1,16 +1,15 @@
 /* eslint-disable react/no-unescaped-entities */
-
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import useAuth from "../../hooks/useAuth";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import SocialLogin from "./SocialLogIn";
 import { Helmet } from "react-helmet-async";
 import Lottie from "lottie-react";
 import finger from "../../../finger.json"
+import useAuth from "../../hooks/useAuth";
 
 const SignIn = () => {
-  const { user, login } = useAuth();
+  const { user, signIn } = useAuth();
   console.log(user);
 
   const Navigate = useNavigate();
@@ -25,7 +24,7 @@ const SignIn = () => {
 
 
     try {
-      await login(email, password);
+      await signIn(email, password);
      
       Navigate(location?.state ? location?.state : "/");
     } catch (err) {
