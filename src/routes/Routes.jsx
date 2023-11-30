@@ -48,7 +48,11 @@ const routes = createBrowserRouter([
       },
       {
         path: "myArticle",
-        element: <MyArticle />,
+        element: (
+          <PrivateRoutes>
+            <MyArticle />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "pay/:id",
@@ -56,23 +60,35 @@ const routes = createBrowserRouter([
       },
       {
         path: "subscription",
-        element: <Subscription />,
+        element: (
+          <PrivateRoutes>
+            <Subscription />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "premiumArticle",
-        element: <PremiumArticle />,
+        element: (
+          <PrivateRoutes>
+            <PremiumArticle />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "viewArticleDetails/:id",
         element: <ViewArticleDetails />,
         loader: ({ params }) =>
-          fetch(`https://assignment-12-server-ivory-pi.vercel.app/title/viewDetails/${params.id}`),
+          fetch(
+            `https://assignment-12-server-ivory-pi.vercel.app/title/viewDetails/${params.id}`
+          ),
       },
       {
         path: "editMyArticle/:id",
         element: <EditMyArticle />,
         loader: ({ params }) =>
-          fetch(`https://assignment-12-server-ivory-pi.vercel.app/title/update/${params.id}`),
+          fetch(
+            `https://assignment-12-server-ivory-pi.vercel.app/title/update/${params.id}`
+          ),
       },
       {
         path: "signIn",
@@ -84,7 +100,11 @@ const routes = createBrowserRouter([
       },
       {
         path: "profile",
-        element: <Profile />,
+        element: (
+          <PrivateRoutes>
+            <Profile />
+          </PrivateRoutes>
+        ),
       },
     ],
   },
@@ -94,23 +114,27 @@ const routes = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <Dashboard />,
+    element: (
+      <PrivateRoutes>
+        <Dashboard />
+      </PrivateRoutes>
+    ),
     children: [
-      { 
-        path: "admin", 
-        element: <Admin />
+      {
+        path: "admin",
+        element: <Admin />,
       },
-      { 
-        path: "addPublisherDashboard", 
-        element: <AddPublisherDashboard />
+      {
+        path: "addPublisherDashboard",
+        element: <AddPublisherDashboard />,
       },
-      { 
-        path: "allArticlesDashboard", 
-        element: <AllArticlesDashboard/> 
+      {
+        path: "allArticlesDashboard",
+        element: <AllArticlesDashboard />,
       },
-      { 
-        path: "allUsersDashboard", 
-        element: <AllUsersDashboard/>
+      {
+        path: "allUsersDashboard",
+        element: <AllUsersDashboard />,
       },
     ],
   },
