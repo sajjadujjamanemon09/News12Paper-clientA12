@@ -1,16 +1,14 @@
-
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import useAuth from "../../hooks/useAuth";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { Helmet } from "react-helmet-async";
 
-
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const SignUp = () => {
-  const {  createUser, handleUpdateProfile } = useAuth();
+  const { createUser, handleUpdateProfile } = useAuth();
   const axiosPublic = useAxiosPublic();
   const navigate = useNavigate();
   const location = useLocation();
@@ -87,15 +85,17 @@ const SignUp = () => {
 
   return (
     <div>
-            <Helmet>
+      <Helmet>
         <title>News12Paper | Sign Up</title>
       </Helmet>
 
-      
-      <main className="md:flex justify-evenly items-center hero min-h-[90vh]">
-      <div>
-               <img src="https://i.ibb.co/gTz3xw2/undraw-Mobile-login-re-9ntv.png" alt="" />
-           </div>
+      <main className="flex flex-col md:flex-row justify-evenly items-center hero">
+        <div>
+          <img
+            src="https://i.ibb.co/gTz3xw2/undraw-Mobile-login-re-9ntv.png"
+            alt=""
+          />
+        </div>
         <div className="mt-7 bg-white border-2  border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700">
           <div className="p-4 sm:p-7">
             <div className="text-center">
@@ -113,7 +113,6 @@ const SignUp = () => {
               </p>
             </div>
             <div className="mt-5">
-         
               <div className="py-3 flex items-center text-xs text-gray-400 uppercase before:flex-[1_1_0%] before:border-t before:border-gray-200 before:me-6 after:flex-[1_1_0%] after:border-t after:border-gray-200 after:ms-6 dark:text-gray-500 dark:before:border-gray-600 dark:after:border-gray-600">
                 Or
               </div>
