@@ -49,7 +49,7 @@ const MyArticle = () => {
     });
   };
   return (
-    <div className="">
+    <div className="overflow-x-auto">
       <Helmet>
         <meta charSet="utf-8" />
         <title>News12Paper | My Article</title>

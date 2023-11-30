@@ -100,8 +100,10 @@ const Checkout = ({ id }) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="card bg-base-300 h-[60vh] p-10">
+  <h2 className="flex justify-center text-2xl font-bold">Give Your Card Information</h2>
+<div className="w-full mx-auto items-center py-20 ">
+<form onSubmit={handleSubmit}>
         <CardElement
           options={{
             style: {
@@ -119,7 +121,7 @@ const Checkout = ({ id }) => {
           }}
         />
         <button
-          className="my-3 btn btn-sm btn-primary"
+          className="my-3 btn btn-sm btn-neutral"
           type="submit"
           disabled={!stripe || !clientSecret}
         >
@@ -129,6 +131,7 @@ const Checkout = ({ id }) => {
         <p className="text-red-600"> {error} </p>
         {transactionId && <p className="text-green-600"> {transactionId} </p>}
       </form>
+</div>
     </div>
   );
 };

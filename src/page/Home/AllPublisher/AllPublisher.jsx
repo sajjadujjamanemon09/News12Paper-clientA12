@@ -17,13 +17,13 @@ const AllPublisher = () => {
 
   return (
     <Container>
-      <div>
+      <div className="my-10 px-2">
         <SectionTitle
           subHeading={"Publisher"}
           heading={"TOP Publisher"}
         ></SectionTitle>
 
-        <div className="grid grid-cols-4">
+        <div className="grid grid-cols-1 md:grid-cols-4">
           {
             users.map(user => (<img key={user._id} src={user?.image} alt="" />))
           }
