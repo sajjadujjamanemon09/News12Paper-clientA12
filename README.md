@@ -1,8 +1,8 @@
 ⦿ Project Name :- News 12 Paper
 
- [ Project Live Link 🔗](https://assignment-12-c8954.web.app) <br/>
- [ GitHub Client Link 🔗](https://github.com/sajjadujjamanemon09/News12Paper-clientA12) <br/>
- [ GitHub Server Link 🔗](https://github.com/sajjadujjamanemon09/News12Paper-serverA12) <br/>
+ [🔗 Project Live Link ](https://assignment-12-c8954.web.app) <br/>
+ [🔗 GitHub Client Link ](https://github.com/sajjadujjamanemon09/News12Paper-clientA12) <br/>
+ [🔗 GitHub Server Link ](https://github.com/sajjadujjamanemon09/News12Paper-serverA12) <br/>
 
 ### Unique Features:
 
@@ -11,7 +11,7 @@
    📌Implement Infinite Scroll In All article Section Using react-infinite-scroll-component.
 
 ### Project Selling Line: 
-
+Discover our news portal website featuring a diverse range of articles. Enjoy free reads and unlock premium content with secure payments via Stripe integration. Share your own articles for admin approval, ensuring quality and reliability. Stay informed and connected with us!
 
 # Here added some bullet points of this Project:
 
