@@ -1,8 +1,17 @@
 ⦿ Project Name :- News 12 Paper
 
-⦿ Project Live Link :- (https://assignment-12-c8954.web.app)
+⦿ [⚙️ Project Live Link 🔗](https://assignment-12-c8954.web.app)
+⦿ [⚙️ GitHub Client Link 🔗](https://github.com/sajjadujjamanemon09/News12Paper-clientA12)
+⦿ [⚙️ GitHub Server Link 🔗](https://github.com/sajjadujjamanemon09/News12Paper-serverA12)
 
-Here added some bullet points of this Project:
+### Unique Features:
+
+   📌Implemented email functionality using EmailJS to receive messages sent via the website.
+   📌Implement Infinite Scroll In All article Section Using react-infinite-scroll-component.
+### Project Selling Line: 
+
+
+# Here added some bullet points of this Project:
 
 ➤ _User Authentication and Authorization_: Users can sign up and log in using valid email and password.
 Passwords must meet security requirements, including uppercase, lowercase, numeric, and symbol characters.
