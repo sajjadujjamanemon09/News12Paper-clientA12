@@ -7,7 +7,7 @@ const ContactUs = () => {
 
   const notify = () =>
   toast.success("Message Sent Successfully", {
-    position: "bottom-center",
+    position: "top-right",
     autoClose: 10000,
     hideProgressBar: false,
     closeOnClick: true,
