@@ -23,7 +23,7 @@ const AllPublisher = () => {
           heading={"TOP Publisher"}
         ></SectionTitle>
 
-        <div className="grid grid-cols-1 md:grid-cols-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {
             users.map(user => (<img key={user._id} src={user?.image} alt="" />))
           }

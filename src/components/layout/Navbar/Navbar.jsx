@@ -78,7 +78,7 @@ const Navbar = () => {
           <div className="flex justify-center items-center">
             <img
               className="w-16"
-              src="https://i.ibb.co/DMZvhP6/news.png"
+              src="https://iili.io/JAnC8Wg.png"
               alt=""
             />
             <a className="btn btn-ghost normal-case text-3xl font-bold">

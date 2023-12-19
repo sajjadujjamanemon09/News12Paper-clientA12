@@ -84,7 +84,7 @@ const ContactUs = () => {
 
                 
                 <div className="md:w-2/4">
-                    <img src="https://i.ibb.co/tpR59jq/smiling-woman-headset-presentation-something.jpg" alt="" />
+                    <img src="https://iili.io/JAnThga.jpg" alt="" />
                 </div>
             </div>
            

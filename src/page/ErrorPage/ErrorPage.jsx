@@ -12,7 +12,7 @@ const ErrorPage = () => {
        </div>
        
         <div className="flex justify-center items-center">
-            <img className="w-[70vh]" src="https://i.ibb.co/Ny9ZTxK/404-page-not-found-monochromatic-32679.png" alt="" />
+            <img className="w-[70vh]" src="https://iili.io/JAfVubs.jpg" alt="" />
 
         </div>
         

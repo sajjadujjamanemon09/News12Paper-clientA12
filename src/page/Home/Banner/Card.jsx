@@ -7,11 +7,11 @@ const Card = () => {
                         <div className="card bg-base-200 border-2 border-black rounded-lg">
               <div className="p-1 h-full rounded-xl">
                 <figure>
-                  <img src="https://i.ibb.co/fY5TV6k/R-1.jpg" alt="Movie" />
+                  <img src="https://iili.io/JAnx4gj.jpg" alt="Movie" />
                 </figure>
               </div>
               <div className="card-body">
-                <h2 className="card-title">New Car is released!</h2>
+                <h2 className="card-title">European Commission report on trade</h2>
                 <p>Today on CNN10, a harrowing rescue mission to save 41 workers trapped in a tunnel in India. Details released into a federal lawsuit accusing tech giant Meta of steering children toward harmful content and contributing to a mental health crisis in the US. We also take you to Hawaii, where the world’s most dangerous animal is threatening an endangered species of native birds.</p>
               </div>
             </div>
@@ -19,7 +19,7 @@ const Card = () => {
             <div className="card bg-base-200 md:card-side border-2 border-black rounded-lg my-2">
               <div className="flex-1 h-full rounded-xl">
                 <figure>
-                  <img className="p-4" src="https://i.ibb.co/PWKCLKM/OIF.jpg" alt="Movie" />
+                  <img className="p-2 " src="https://iili.io/JAnIxMF.jpg" alt="Movie" />
                 </figure>
               </div>
               <div className="card-body flex-1">
@@ -31,7 +31,7 @@ const Card = () => {
             <div className="card bg-base-200 md:card-side border-2 border-black rounded-lg">
               <div className="flex-1 h-full rounded-xl">
                 <figure>
-                  <img className="py-5 px-3" src="https://i.ibb.co/Rjs0sxj/OIF-1.jpg" alt="Movie" />
+                  <img className="p-2" src="https://iili.io/JAnIwtS.jpg" alt="Movie" />
                 </figure>
               </div>
               <div className="card-body flex-1">
